@@ -1,0 +1,41 @@
+@import './../../constants/style.scss';
+
+.af-loginCardContainer {
+  .af-paper {
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .af-title {
+      font-weight: 700;
+      margin-top: 0;
+    }
+    .af-inputsPaper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .af-inputPaper {
+        border-radius: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: .5rem .8rem .5rem 1.5rem;
+        .af-inputBase {
+          width: 100%;
+        }
+        .af-icon {
+          color: $lightGrey;
+          margin-left: .5rem;
+        }
+      }
+    }
+    .af-button {
+      width: 100%;
+      text-transform: none;
+      background-color: $blue;
+      color: $white;
+      margin-top: 2rem;
+      font-weight: 600;
+    }
+  }
+}
