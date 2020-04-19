@@ -2,10 +2,11 @@
 
 .af-loginCardContainer {
   .af-paper {
-    padding: 2rem 4rem;
+    padding: 2rem 4rem 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 2.5rem;
     .af-title {
       font-weight: 700;
       margin-top: 0;
@@ -14,6 +15,7 @@
       display: flex;
       flex-direction: column;
       width: 100%;
+      margin: 2rem 0;
       .af-inputPaper {
         border-radius: 0;
         display: flex;
@@ -34,7 +36,6 @@
       text-transform: none;
       background-color: $blue;
       color: $white;
-      margin-top: 2rem;
       font-weight: 600;
     }
   }
