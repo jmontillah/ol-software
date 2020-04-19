@@ -10,14 +10,17 @@
   font-weight: 600;
   src: url('./assets/fonts/Manrope-SemiBold.ttf');
 }
-
 @font-face {
   font-family: 'Manrope';
   font-style: normal;
   font-weight: 700;
   src: url('./assets/fonts/Manrope-Bold.ttf');
 }
+@import './constants/style.scss';
 
 * {
   font-family: 'Manrope' !important;
+}
+body {
+  background-color: $mainBg;
 }
