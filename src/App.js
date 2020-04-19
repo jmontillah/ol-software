@@ -1,11 +1,10 @@
 import React from 'react';
-import LoginCard from './components/LoginCard';
-import SearchForm from './components/SearchForm';
+import UserModal from './components/UserModal';
 
 function App() {
   return (
     <div className="App">
-      <SearchForm />
+      <UserModal title="Agregar nuevo usuario" />
     </div>
   );
 }

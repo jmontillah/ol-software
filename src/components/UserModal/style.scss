@@ -1,0 +1,66 @@
+@import './../../constants/style.scss';
+
+.af-mainDialog {
+  .af-title {
+    h2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    svg {
+      cursor: pointer;
+      color: $red;
+    }
+  }
+  .af-content {
+    .af-twoInputs {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      .af-formControl {
+        width: 40%;
+        margin: .8rem 0;
+        .af-inputLabel {
+          transform: scale(1);
+        }
+        .af-inputBase {
+          margin-top: 1.25rem;
+          width: 100%;
+          input, .MuiSelect-select {
+            border: 1px solid $lightGrey;
+            border-radius: .2rem;
+            padding: .3rem .5rem;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+    .af-buttons {
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+      margin: 1rem 0;
+      .af-btnDiv {
+        width: 40%;
+        .af-btn {
+          text-transform: none;
+          width: 45%;
+        }
+        &.accept {
+          display: flex;
+          justify-content: flex-end;
+          button {
+            background-color: $green;
+            color: $white;
+          }
+        }
+        &.cancel {
+          button {
+            border: 1px solid $green;
+            color: $green;
+          }
+        }
+      }
+    }
+  }
+}
