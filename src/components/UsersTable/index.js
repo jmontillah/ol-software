@@ -1,7 +1,8 @@
 import React from 'react'
 import { TableContainer, Table, TableHead, TableRow, TableCell, 
   TableBody} from '@material-ui/core'
-import { usersTableColumns, fakeUsers } from './../../constants'
+import { usersTableColumns } from './../../constants'
+import { data } from './../../api/data'
 import './style.scss'
 
 const UsersTable = () => {
@@ -16,7 +17,7 @@ const UsersTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {fakeUsers.map(user => 
+          {data.users.map(user => 
             <TableRow key={user._id}>
               <TableCell>{user.names}</TableCell>
               <TableCell>{user.surnames}</TableCell>

@@ -2,9 +2,8 @@
 
 .af-sidebarContainer {
   background-image: linear-gradient($lightBlueBg, $darkBlueBg);
-  height: 100vh;
-  padding: .5rem .5rem;
-  width: 250px;
+  height: 100%;
+  padding: .5rem .5rem 0;
   .af-icon {
     color: $white;
     margin-right: .5rem;

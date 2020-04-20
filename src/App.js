@@ -1,11 +1,14 @@
 import React from 'react';
-import LoginScreenContainer from './containers/LoginScreenContainer';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './Routes';
 
 function App() {
   return (
-    <div className="App">
-      <LoginScreenContainer />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes />
+      </div>
+    </BrowserRouter>
   );
 }
 

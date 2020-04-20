@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { Typography } from '@material-ui/core'
-import LoginCard from './../components/LoginCard'
-import { login as loginApi } from './../api'
-import Loading from '../components/Loading';
+import LoginCard from './../../components/LoginCard'
+import { login as loginApi } from './../../api'
+import Loading from './../../components/Loading'
+import './style.scss'
 
-class LoginScreenContainer extends Component {
+class LoginScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,4 +60,4 @@ class LoginScreenContainer extends Component {
   }
 }
 
-export default LoginScreenContainer
+export default LoginScreen

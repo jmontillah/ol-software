@@ -1,0 +1,13 @@
+@import './../../constants/style.scss';
+
+.af-dashboardContainer {
+  display: flex;
+  .af-content {
+    display: flex;
+    flex-direction: column;
+    .af-info {
+      display: flex;
+      padding: 1rem;
+    }
+  }
+}

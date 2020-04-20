@@ -1,0 +1,9 @@
+@import './../../constants/style.scss';
+
+.af-footerContainer {
+  background-color: $white;
+  display: flex;
+  justify-content: flex-end;
+  padding: .5rem 1rem;
+  margin-bottom: -.5rem;
+}

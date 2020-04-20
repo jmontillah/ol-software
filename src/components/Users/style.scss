@@ -1,7 +1,7 @@
 @import './../../constants/style.scss';
 
 .af-paperContainer {
-  padding: 1rem 1.5rem;
+  padding: 1.5rem;
   .af-header {
     display: flex;
     justify-content: space-between;
@@ -26,5 +26,8 @@
         padding: .2rem 1.5rem;
       }
     }
+  }
+  .af-table {
+    margin: .25rem 0;
   }
 }
