@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Typography } from '@material-ui/core'
 import LoginCard from './../components/LoginCard'
 import { login as loginApi } from './../api'
+import Loading from '../components/Loading';
 
 class LoginScreenContainer extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class LoginScreenContainer extends Component {
     this.state = {
       error: '',
       user: '',
-      pass: ''
+      pass: '',
+      loading: false
     }
   }
 
@@ -17,7 +19,11 @@ class LoginScreenContainer extends Component {
     const loginRes = loginApi(this.state.user, this.state.pass)
     if (!loginRes) return this.setState({error: 'Hubo un error, verifica los campos.'})
     if (!loginRes.active) return this.setState({error: 'El usuario no está activo.'})
-    alert('Login correcto')
+    this.setState({loading: true})
+    setTimeout(() => {
+      this.setState({loading: false})
+      alert('Login correcto')
+    }, 2000)
   }
 
   onChange = (e, input) => {
@@ -45,6 +51,9 @@ class LoginScreenContainer extends Component {
             error={this.state.error}
           />
         </div>
+        {this.state.loading &&
+          <Loading />
+        }
       </div>
     )
   }
