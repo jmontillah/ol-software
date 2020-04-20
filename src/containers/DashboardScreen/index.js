@@ -13,13 +13,23 @@ class DashboardScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: checkSession()
+      username: checkSession(),
+      openModal: false,
+      modalTitle: ''
     }
   }
 
   logoutFn = async () => {
     logutSession()
     this.setState({username: false})
+  }
+
+  showModal = (title) => {
+    this.setState({openModal: true, modalTitle: title})
+  }
+
+  hideModal = () => {
+    this.setState({openModal: false})
   }
 
   render() {
@@ -36,7 +46,11 @@ class DashboardScreen extends Component {
             <Navbar username={this.state.username} logoutFn={this.logoutFn}/>
             <Grid container spacing={1} className="af-info">
               <Grid item xs={9}>
-                <Users />
+                <Users 
+                  openModal={this.state.openModal}
+                  showModal={this.showModal}
+                  hideModal={this.hideModal}
+                />
               </Grid>
               <Grid item xs={3}>
                 <SearchForm />
