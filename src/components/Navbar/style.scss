@@ -1,0 +1,33 @@
+@import './../../constants/style.scss';
+
+.af-navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5rem 1.5rem;
+  background-color: $white;
+  .af-left {
+    display: flex;
+    align-items: center;
+    .af-title {
+      margin: 0 1rem;
+      color: $blue;
+      font-weight: 700;
+    }
+  }
+  .af-right {
+    display: flex;
+    align-items: center;
+    .af-name {
+      margin: 0 .5rem;
+      font-weight: 600;
+    }
+  }
+  .af-icon {
+    color: $blue;
+    cursor: pointer;
+    &.af-signOut{
+      margin-left: 2rem;
+    }
+  }
+}
