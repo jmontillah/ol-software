@@ -44,6 +44,17 @@ export const filterUsers = objFilters => {
   users = finalArr
 }
 
+export const createUser = userObj => {
+  let _id = ''
+  let characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  let charactersLength = characters.length;
+  for (let i = 0; i < 24; i++) {
+    _id += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  userObj._id = _id
+  users.push(userObj)
+}
+
 export const getRoles = () => {
   return roles
 }

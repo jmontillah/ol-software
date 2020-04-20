@@ -55,39 +55,39 @@ export const data = {
       "email": "jordanjames@enjola.com",
       "password": "prueba"
     },
-    {
-      "_id": "5e9d28c758f89106d9ceeb84",
-      "names": "Wooten Trujillo",
-      "surnames": "Key Ortiz",
-      "national_id": "5474948352",
-      "role": "5e9da23b36a7e312286a1746",
-      "active": true,
-      "phone": "(984) 537-2234",
-      "email": "keyortiz@enjola.com",
-      "password": "prueba"
-    },
-    {
-      "_id": "5e9d28c7e9d2c225725bf3cb",
-      "names": "Olsen Petty",
-      "surnames": "Golden Spencer",
-      "national_id": "5857390228",
-      "role": "5e9da23ba66ce496c5805d7f",
-      "active": false,
-      "phone": "(847) 431-2430",
-      "email": "goldenspencer@enjola.com",
-      "password": "prueba"
-    },
-    {
-      "_id": "5e9d28c73d92ce2c067588f2",
-      "names": "Barnett Carr",
-      "surnames": "Staci Crawford",
-      "national_id": "3207657272",
-      "role": "5e9da23b8a03a6436ab33055",
-      "active": true,
-      "phone": "(917) 485-3428",
-      "email": "stacicrawford@enjola.com",
-      "password": "prueba"
-    },
+    // {
+    //   "_id": "5e9d28c758f89106d9ceeb84",
+    //   "names": "Wooten Trujillo",
+    //   "surnames": "Key Ortiz",
+    //   "national_id": "5474948352",
+    //   "role": "5e9da23b36a7e312286a1746",
+    //   "active": true,
+    //   "phone": "(984) 537-2234",
+    //   "email": "keyortiz@enjola.com",
+    //   "password": "prueba"
+    // },
+    // {
+    //   "_id": "5e9d28c7e9d2c225725bf3cb",
+    //   "names": "Olsen Petty",
+    //   "surnames": "Golden Spencer",
+    //   "national_id": "5857390228",
+    //   "role": "5e9da23ba66ce496c5805d7f",
+    //   "active": false,
+    //   "phone": "(847) 431-2430",
+    //   "email": "goldenspencer@enjola.com",
+    //   "password": "prueba"
+    // },
+    // {
+    //   "_id": "5e9d28c73d92ce2c067588f2",
+    //   "names": "Barnett Carr",
+    //   "surnames": "Staci Crawford",
+    //   "national_id": "3207657272",
+    //   "role": "5e9da23b8a03a6436ab33055",
+    //   "active": true,
+    //   "phone": "(917) 485-3428",
+    //   "email": "stacicrawford@enjola.com",
+    //   "password": "prueba"
+    // },
     // {
     //   "_id": "5e9e0e041cdf21da29af5981",
     //   "names": "Estela York",

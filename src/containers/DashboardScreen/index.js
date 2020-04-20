@@ -7,7 +7,7 @@ import Users from './../../components/Users'
 import SearchForm from './../../components/SearchForm'
 import Footer from './../../components/Footer'
 import { checkSession, logutSession } from './../../utils'
-import { getUsers, filterUsers, getRoles } from './../../api'
+import { getUsers, filterUsers, getRoles, createUser } from './../../api'
 import './style.scss'
 
 class DashboardScreen extends Component {
@@ -29,6 +29,16 @@ class DashboardScreen extends Component {
         active: '',
         phone: '',
         email: ''
+      },
+      newUserForm: {
+        names: "",
+        surnames: "",
+        national_id: "",
+        role: "",
+        active: false,
+        phone: "",
+        email: "",
+        password: ""
       }
     }
   }
@@ -71,6 +81,17 @@ class DashboardScreen extends Component {
     this.setState({filterForm: stateForm})
   }
 
+  onChangeNewUserForm = (e, item) => {
+    let stateForm = this.state.newUserForm
+    stateForm[item] = e.target.value
+    this.setState({newUserForm: stateForm})
+  }
+
+  createUserFn = () => {
+    createUser(this.state.newUserForm)
+    this.setState({users: getUsers(), openModal: false})
+  }
+
   render() {
     return (
       <div className="af-dashboardContainer">
@@ -94,6 +115,10 @@ class DashboardScreen extends Component {
                   openConfirmModal={this.state.openConfirmModal}
                   showConfirmModal={this.showConfirmModal}
                   userId={this.state.userId}
+                  newUserForm={this.state.newUserForm}
+                  onChangeNewUserForm={this.onChangeNewUserForm}
+                  newUserFn={this.createUserFn}
+                  roles={this.state.roles}
                 />
               </Grid>
               <Grid item xs={3}>
