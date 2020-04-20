@@ -1,55 +1,53 @@
 @import './../../constants/style.scss';
 
-.af-searchFormContainer{
-  .af-mainPaper {
-    border: none;
-    padding: 2rem;
-    .af-title {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      color: $blue;
-      margin-bottom: 1rem;
-      .af-text {
-        font-weight: 600;
-        margin-left: .5rem;
+.af-searchFormPaper {
+  border: none;
+  padding: 2rem;
+  .af-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: $blue;
+    margin-bottom: 1rem;
+    .af-text {
+      font-weight: 600;
+      margin-left: .5rem;
+    }
+  }
+  .af-form {
+    width: 100%;
+    .af-formControl {
+      width: 100%;
+      margin: .5rem 0;
+      .af-inputLabel {
+        transform: scale(1);
+      }
+      .af-inputBase {
+        margin-top: 1.25rem;
+        width: 100%;
+        input, .MuiSelect-select {
+          border: 1px solid $lightGrey;
+          border-radius: .2rem;
+          padding: .3rem .5rem;
+          font-size: 1rem;
+        }
       }
     }
-    .af-form {
-      width: 100%;
-      .af-formControl {
-        width: 100%;
-        margin: .5rem 0;
-        .af-inputLabel {
-          transform: scale(1);
+    .af-buttons {
+      display: flex;
+      margin-top: 2rem;
+      justify-content: space-between;
+      .af-btn {
+        text-transform: none;
+        width: 47.5%;
+        &.filter {
+          background-color: $green;
+          color: $white;
         }
-        .af-inputBase {
-          margin-top: 1.25rem;
-          width: 100%;
-          input, .MuiSelect-select {
-            border: 1px solid $lightGrey;
-            border-radius: .2rem;
-            padding: .3rem .5rem;
-            font-size: 1rem;
-          }
-        }
-      }
-      .af-buttons {
-        display: flex;
-        margin-top: 2rem;
-        justify-content: space-between;
-        .af-btn {
-          text-transform: none;
-          width: 47.5%;
-          &.filter {
-            background-color: $green;
-            color: $white;
-          }
-          &.clear {
-            background-color: $white;
-            color: $green;
-            border: 1px solid $green;
-          }
+        &.clear {
+          background-color: $white;
+          color: $green;
+          border: 1px solid $green;
         }
       }
     }

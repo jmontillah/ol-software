@@ -1,10 +1,10 @@
 import React from 'react';
-import UserModal from './components/UserModal';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <div className="App">
-      <UserModal title="Agregar nuevo usuario" />
+      <Navbar username="Jhonnatan Montilla" />
     </div>
   );
 }

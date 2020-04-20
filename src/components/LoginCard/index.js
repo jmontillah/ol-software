@@ -6,32 +6,30 @@ import './style.scss'
 
 const LoginCard = () => {
   return (
-    <div className="af-loginCardContainer">
-      <Paper className="af-paper" elevation={3}>
-        <Typography variant="h2" class="af-title">
-          Inicio de sesión
-        </Typography>
-        <Paper className="af-inputsPaper" elevation={2}>
-          <Paper className="af-inputPaper" variant="outlined">
-            <InputBase 
-              placeholder="Usuario"
-              className="af-inputBase"
-            />
-            <PersonOutlineOutlinedIcon className="af-icon"/>
-          </Paper>
-          <Paper className="af-inputPaper" variant="outlined">
-            <InputBase 
-              placeholder="Contraseña"
-              className="af-inputBase"
-            />
-            <LockOutlinedIcon className="af-icon"/>
-          </Paper>
+    <Paper className="af-loginCardPaper" elevation={3}>
+      <Typography variant="h2" class="af-title">
+        Inicio de sesión
+      </Typography>
+      <Paper className="af-inputsPaper" elevation={2}>
+        <Paper className="af-inputPaper" variant="outlined">
+          <InputBase 
+            placeholder="Usuario"
+            className="af-inputBase"
+          />
+          <PersonOutlineOutlinedIcon className="af-icon"/>
         </Paper>
-        <Button variant="contained" className="af-button">
-          Iniciar sesión
-        </Button>
+        <Paper className="af-inputPaper" variant="outlined">
+          <InputBase 
+            placeholder="Contraseña"
+            className="af-inputBase"
+          />
+          <LockOutlinedIcon className="af-icon"/>
+        </Paper>
       </Paper>
-    </div>
+      <Button variant="contained" className="af-button">
+        Iniciar sesión
+      </Button>
+    </Paper>
   )
 }
 
