@@ -2,10 +2,11 @@ import React from 'react'
 import { TableContainer, Table, TableHead, TableRow, TableCell, 
   TableBody} from '@material-ui/core'
 import { usersTableColumns } from './../../constants'
-import { data } from './../../api/data'
+import { getUsers } from './../../api'
 import './style.scss'
 
 const UsersTable = () => {
+  const users = getUsers()
   return (
     <TableContainer className="af-tableContainer">
       <Table size="small">
@@ -19,12 +20,12 @@ const UsersTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.users.map(user => 
+          {users.map(user => 
             <TableRow key={user._id}>
               <TableCell>{user.names}</TableCell>
               <TableCell>{user.surnames}</TableCell>
               <TableCell>{user.national_id}</TableCell>
-              <TableCell>{user.role}</TableCell>
+              <TableCell>{user.role.name}</TableCell>
               <TableCell>{user.active ? 'Activo' : 'Inactivo'}</TableCell>
               <TableCell>{user.phone}</TableCell>
               <TableCell>{user.email}</TableCell>
