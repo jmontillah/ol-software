@@ -1,0 +1,71 @@
+@import './../../constants/style.scss';
+
+.af-sidebarContainer {
+  background-image: linear-gradient($lightBlueBg, $darkBlueBg);
+  height: 100vh;
+  padding: .5rem .5rem;
+  width: 250px;
+  .af-icon {
+    color: $white;
+    margin-right: .5rem;
+    &.af-expand {
+      margin-right: 0;
+    }
+  }
+  .af-text {
+    color: $white;
+  }
+  .af-divider {
+    background-color: $white;
+    margin: .5rem 0;
+  }
+  .af-title {
+    display: flex;
+    align-items: center;
+    padding: 0 .25rem;
+  }
+  .af-content {
+    .af-expansionPanel {
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+      margin: 1rem 0;
+      &:before {
+        display: none;
+      }
+      .af-panelSummary {
+        padding: 0 .5rem;
+        height: 2.5rem;
+        min-height: 2.5rem;
+        max-height: 2.6rem;
+        .af-text {
+          margin-left: .5rem;
+        }
+        & > div:first-child {
+          display: flex;
+          align-items: center;
+        }
+      }
+      &:first-child {
+        margin-top: 1rem;
+      }
+    }
+    .MuiExpansionPanelDetails-root {
+      margin: .5rem 0 0;
+      padding: 0 .5rem;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      .af-text {
+        margin-left: .5rem;
+      }
+      .af-element {
+        display: flex;
+        margin: 1rem 0;
+        &:last-child {
+          margin-bottom: .5rem;
+        }
+      }
+    }
+  }
+}
