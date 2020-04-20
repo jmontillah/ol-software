@@ -23,4 +23,29 @@
 }
 body {
   background-color: $mainBg;
+  margin: 0;
+}
+
+.af-loginScreenContainer {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./images/background-login.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .af-text {
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    justify-content: flex-start;
+    text-shadow: 1px 1px black;
+    .af-title {
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+  }
 }

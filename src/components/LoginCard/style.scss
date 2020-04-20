@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 2.5rem;
+  border-radius: 2.5rem !important;
   .af-title {
     font-weight: 700;
     margin-top: 0;
@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 2rem 0;
+    margin: 2rem 0 1rem;
     .af-inputPaper {
       border-radius: 0;
       display: flex;
@@ -40,5 +40,10 @@
       background-color: $blue;
       color: $white;
     }
+  }
+  .af-errorText {
+    color: $red;
+    font-weight: 600;
+    margin-bottom: 1rem;
   }
 }

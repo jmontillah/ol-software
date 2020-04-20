@@ -1,10 +1,10 @@
 import React from 'react';
-import Users from './components/Users';
+import LoginScreenContainer from './containers/LoginScreenContainer';
 
 function App() {
   return (
     <div className="App">
-      <Users />
+      <LoginScreenContainer />
     </div>
   );
 }
