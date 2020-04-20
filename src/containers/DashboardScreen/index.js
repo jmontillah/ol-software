@@ -17,8 +17,8 @@ class DashboardScreen extends Component {
       username: checkSession(),
       openModal: false,
       modalTitle: '',
-      users: getUsers(),
-      openConfirmModal: false
+      openConfirmModal: false,
+      userId: ''
     }
   }
 
@@ -31,8 +31,8 @@ class DashboardScreen extends Component {
     this.setState({openModal: true, modalTitle: title})
   }
 
-  showConfirmModal = () => {
-    this.setState({openConfirmModal: true})
+  showConfirmModal = userId => {
+    this.setState({openConfirmModal: true, userId})
   }
 
   hideModal = (modal) => {
@@ -40,6 +40,7 @@ class DashboardScreen extends Component {
   }
 
   render() {
+    const users = getUsers()
     return (
       <div className="af-dashboardContainer">
         {!this.state.username &&
@@ -58,9 +59,10 @@ class DashboardScreen extends Component {
                   showModal={this.showModal}
                   hideModal={this.hideModal}
                   modalTitle={this.state.modalTitle}
-                  users={this.state.users}
+                  users={users}
                   openConfirmModal={this.state.openConfirmModal}
                   showConfirmModal={this.showConfirmModal}
+                  userId={this.state.userId}
                 />
               </Grid>
               <Grid item xs={3}>

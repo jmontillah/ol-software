@@ -9,7 +9,7 @@ import './style.scss'
 
 const Users = props => {
   const { users, openModal, modalTitle, showModal, hideModal, 
-    openConfirmModal, showConfirmModal } = props
+    openConfirmModal, showConfirmModal, userId } = props
   return (
     <Paper className="af-paperContainer" variant="outlined">
       <div className="af-header">
@@ -31,6 +31,7 @@ const Users = props => {
           <ConfirmModal 
             open={openConfirmModal}
             hide={hideModal}
+            userId={userId}
           />
         </div>
       </div>
@@ -52,7 +53,8 @@ Users.propTypes = {
   showModal: PropTypes.func.isRequired,
   hideModal: PropTypes.func.isRequired,
   openConfirmModal: PropTypes.bool.isRequired,
-  showConfirmModal: PropTypes.func.isRequired
+  showConfirmModal: PropTypes.func.isRequired,
+  userId: PropTypes.string.isRequired,
 }
 
 export default Users

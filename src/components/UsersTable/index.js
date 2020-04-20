@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { TableContainer, Table, TableHead, TableRow, TableCell, 
-  TableBody} from '@material-ui/core'
+  TableBody, TablePagination, TableFooter } from '@material-ui/core'
 import EditIcon from '@material-ui/icons/Edit'
 import DeleteIcon from '@material-ui/icons/Delete'
 import { usersTableColumns } from './../../constants'
 import './style.scss'
 
 const UsersTable = props => {
+  const [page, setPage] = useState(1)
   const { users, showModal, showConfirmModal } = props
   return (
     <TableContainer className="af-tableContainer">
@@ -40,12 +41,24 @@ const UsersTable = props => {
                 <DeleteIcon 
                   fontSize="small" 
                   className="af-icon"
-                  onClick={() => showConfirmModal()}
+                  onClick={() => showConfirmModal(`${user._id}`)}
                 />
               </TableCell>
             </TableRow>
           )}
         </TableBody>
+        {/* <TableFooter>
+          <TableRow>
+            <TablePagination
+              rowsPerPageOptions={[]}
+              rowsPerPage={8}
+              component="div"
+              count={users.length}
+              page={page}
+              onChangePage={(newPage) => setPage(newPage)}
+            />
+          </TableRow>
+        </TableFooter> */}
       </Table>
     </TableContainer>
   )

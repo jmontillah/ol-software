@@ -1,10 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Dialog, DialogContent, Typography, Button } from '@material-ui/core'
+import { deleteUser } from './../../api'
 import './style.scss'
 
 const ConfirmModal = props => {
-  const { open, hide } = props
+  const { open, hide, userId } = props
+
+  const onDelete = () => {
+    deleteUser(userId)
+    hide('openConfirmModal')
+  }
+
   return (
     <Dialog
       open={open}
@@ -17,7 +24,9 @@ const ConfirmModal = props => {
         </Typography>
         <div className="af-buttons">
           <div className="af-btnDiv accept">
-            <Button className="af-btn">Continuar</Button>
+            <Button className="af-btn" onClick={() => onDelete()}>
+              Continuar
+            </Button>
           </div>
           <div className="af-btnDiv cancel">
             <Button className="af-btn" onClick={() => hide('openConfirmModal')}>
@@ -33,6 +42,7 @@ const ConfirmModal = props => {
 ConfirmModal.propTypes = {
   open: PropTypes.bool.isRequired,
   hide: PropTypes.func.isRequired,
+  userId: PropTypes.string.isRequired,
 }
 
 export default ConfirmModal
