@@ -12,7 +12,9 @@ const UsersTable = () => {
         <TableHead>
           <TableRow>
             {usersTableColumns.map(column => 
-              <TableCell className="af-columnTitle">{column}</TableCell>
+              <TableCell className="af-columnTitle" key={column}>
+                {column}
+              </TableCell>
             )}
           </TableRow>
         </TableHead>

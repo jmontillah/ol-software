@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Typography } from '@material-ui/core'
+import { Redirect } from 'react-router-dom'
 import LoginCard from './../../components/LoginCard'
 import { login as loginApi } from './../../api'
 import Loading from './../../components/Loading'
+import { checkSession, loginSession } from './../../utils'
 import './style.scss'
 
 class LoginScreen extends Component {
@@ -12,7 +14,8 @@ class LoginScreen extends Component {
       error: '',
       user: '',
       pass: '',
-      loading: false
+      loading: false,
+      username: checkSession()
     }
   }
 
@@ -23,7 +26,8 @@ class LoginScreen extends Component {
     this.setState({loading: true})
     setTimeout(() => {
       this.setState({loading: false})
-      alert('Login correcto')
+      loginSession(loginRes.names + ' ' + loginRes.surnames)
+      this.setState({username: loginRes.names + ' ' + loginRes.surnames})
     }, 2000)
   }
 
@@ -34,6 +38,12 @@ class LoginScreen extends Component {
   render() {
     return (
       <div className="af-loginScreenContainer">
+        {this.state.username &&
+          <Redirect to={{
+            pathname: "/dashboard",
+            state: { username: this.state.username }
+          }} />
+        }
         <div className="af-text">
           <Typography className="af-title" variant="h5">
             Aplicación<br />

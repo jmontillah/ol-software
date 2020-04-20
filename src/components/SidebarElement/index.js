@@ -22,7 +22,7 @@ const SidebarElement = props => {
         {options.length > 0 &&
           <ExpansionPanelDetails>
           {options.map(opt => 
-              <div className="af-element">
+              <div className="af-element" key={opt.name}>
                 {opt.icon}
                 <Typography className="af-text" variant="subtitle2">
                   {opt.name}
@@ -39,7 +39,7 @@ const SidebarElement = props => {
 SidebarElement.propTypes = {
   name: PropTypes.string.isRequired,
   icon: PropTypes.element.isRequired,
-  options: PropTypes.array.isRequired,
+  options: PropTypes.array
 }
 
 export default SidebarElement
