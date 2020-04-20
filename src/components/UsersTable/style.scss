@@ -4,4 +4,10 @@
   .af-columnTitle {
     font-weight: 600;
   }
+  .af-icon {
+    cursor: pointer;
+    &.af-blue {
+      color: $blue;
+    }
+  }
 }

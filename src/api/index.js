@@ -9,10 +9,10 @@ export const login = (email, pass) => {
 export const getUsers = () => {
   const { users, roles } = data
   const finalArr = []
-  users.map(user => {
-    const role = roles.find(rol => rol._id === user.role)
-    user.role = role
-    finalArr.push(user)
-  })
+  for (const user of users) {
+    let role = roles.find(rol => rol._id === user.role)
+    if (role) user.role = role
+    if (finalArr.length !== users.length) finalArr.push(user)
+  }
   return finalArr
 }

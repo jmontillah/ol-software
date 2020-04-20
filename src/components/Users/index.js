@@ -7,7 +7,7 @@ import UserModal from './../UserModal'
 import './style.scss'
 
 const Users = props => {
-  const { openModal, modalTitle, showModal, hideModal } = props
+  const { users, openModal, modalTitle, showModal, hideModal } = props
   return (
     <Paper className="af-paperContainer" variant="outlined">
       <div className="af-header">
@@ -18,26 +18,27 @@ const Users = props => {
           </Typography>
         </div>
         <div className="af-right">
-          <Button className="af-btn" onClick={() => showModal()}>
+          <Button className="af-btn" onClick={() => showModal('Agregar nuevo usuario')}>
             Crear
           </Button>
+          <UserModal 
+            open={openModal} 
+            title={modalTitle}
+            hide={hideModal}
+          />
         </div>
       </div>
       <div className="af-table">
-        <UsersTable />
+        <UsersTable users={users} showModal={showModal} />
       </div>
-      <UserModal 
-        open={openModal} 
-        title={'Agregar nuevo usuario'}
-        hide={hideModal}
-      />
     </Paper>
   )
 }
 
 Users.propTypes = {
   users: PropTypes.array.isRequired,
-  openModal: PropTypes.func.isRequired,
+  openModal: PropTypes.bool.isRequired,
+  modalTitle: PropTypes.string.isRequired,
   showModal: PropTypes.func.isRequired,
   hideModal: PropTypes.func.isRequired,
 }

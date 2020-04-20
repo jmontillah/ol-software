@@ -7,6 +7,7 @@ import Users from './../../components/Users'
 import SearchForm from './../../components/SearchForm'
 import Footer from './../../components/Footer'
 import { checkSession, logutSession } from './../../utils'
+import { getUsers } from './../../api'
 import './style.scss'
 
 class DashboardScreen extends Component {
@@ -15,7 +16,8 @@ class DashboardScreen extends Component {
     this.state = {
       username: checkSession(),
       openModal: false,
-      modalTitle: ''
+      modalTitle: '',
+      users: getUsers()
     }
   }
 
@@ -50,6 +52,8 @@ class DashboardScreen extends Component {
                   openModal={this.state.openModal}
                   showModal={this.showModal}
                   hideModal={this.hideModal}
+                  modalTitle={this.state.modalTitle}
+                  users={this.state.users}
                 />
               </Grid>
               <Grid item xs={3}>
