@@ -7,7 +7,7 @@ import Users from './../../components/Users'
 import SearchForm from './../../components/SearchForm'
 import Footer from './../../components/Footer'
 import { checkSession, logutSession } from './../../utils'
-import { getUsers } from './../../api'
+import { getUsers, filterUsers, getRoles } from './../../api'
 import './style.scss'
 
 class DashboardScreen extends Component {
@@ -18,7 +18,18 @@ class DashboardScreen extends Component {
       openModal: false,
       modalTitle: '',
       openConfirmModal: false,
-      userId: ''
+      userId: '',
+      users: getUsers(),
+      roles: getRoles(),
+      filterForm: {
+        names: '',
+        surnames: '',
+        national_id: '',
+        role: '',
+        active: '',
+        phone: '',
+        email: ''
+      }
     }
   }
 
@@ -39,8 +50,28 @@ class DashboardScreen extends Component {
     this.setState({[modal]: false})
   }
 
+  onChangeFilterForm = (e, item) => {
+    let stateForm = this.state.filterForm
+    stateForm[item] = e.target.value
+    this.setState({filterForm: stateForm})
+  }
+
+  filterUsersFn = () => {
+    filterUsers(this.state.filterForm)
+    this.setState({users: getUsers()})
+  }
+
+  clearFilterForm = () => {
+    let stateForm = this.state.filterForm
+    for (const key in stateForm) {
+      if (stateForm.hasOwnProperty(key)) {
+        stateForm[key] = '';
+      }
+    }
+    this.setState({filterForm: stateForm})
+  }
+
   render() {
-    const users = getUsers()
     return (
       <div className="af-dashboardContainer">
         {!this.state.username &&
@@ -59,14 +90,20 @@ class DashboardScreen extends Component {
                   showModal={this.showModal}
                   hideModal={this.hideModal}
                   modalTitle={this.state.modalTitle}
-                  users={users}
+                  users={this.state.users}
                   openConfirmModal={this.state.openConfirmModal}
                   showConfirmModal={this.showConfirmModal}
                   userId={this.state.userId}
                 />
               </Grid>
               <Grid item xs={3}>
-                <SearchForm />
+                <SearchForm 
+                  onChange={this.onChangeFilterForm}
+                  filterForm={this.state.filterForm}
+                  roles={this.state.roles}
+                  filter={this.filterUsersFn}
+                  clear={this.clearFilterForm}
+                />
               </Grid>
             </Grid>
             <Footer />
