@@ -1,0 +1,46 @@
+@import './../../constants/style.scss';
+
+.af-expansionPanelContainer {
+  .af-expansionPanel {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    margin: 1rem 0;
+    &:before {
+      display: none;
+    }
+    .af-panelSummary {
+      padding: 0 .5rem;
+      height: 2.5rem;
+      min-height: 2.5rem;
+      max-height: 2.6rem;
+      .af-text {
+        margin-left: .5rem;
+      }
+      & > div:first-child {
+        display: flex;
+        align-items: center;
+      }
+    }
+    &:first-child {
+      margin-top: 1rem !important;
+    }
+  }
+  .MuiExpansionPanelDetails-root {
+    margin: .5rem 0 0;
+    padding: 0 .5rem;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    .af-text {
+      margin-left: .5rem;
+    }
+    .af-element {
+      display: flex;
+      margin: 1rem 0;
+      &:last-child {
+        margin-bottom: .5rem;
+      }
+    }
+  }
+}

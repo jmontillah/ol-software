@@ -1,0 +1,30 @@
+@import './../../constants/style.scss';
+
+.af-paperContainer {
+  padding: 1rem 1.5rem;
+  .af-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    align-items: center;
+    .af-left {
+      display: flex;
+      .af-icon {
+        color: $blue;
+      }
+      .af-text {
+        color: $blue;
+        font-weight: 600;
+        margin-left: .5rem;
+      }
+    }
+    .af-right {
+      .af-btn {
+        text-transform: none;
+        background-color: $blue;
+        color: $white;
+        padding: .2rem 1.5rem;
+      }
+    }
+  }
+}

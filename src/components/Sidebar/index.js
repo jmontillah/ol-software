@@ -23,12 +23,10 @@ const Sidebar = () => {
         </Typography>
       </div>
       <Divider className="af-divider"/>
-      <div className="af-content">
-        <SidebarElement name="Programación" icon={<MapIcon className="af-icon"/>} />
-        <SidebarElement name="Gestión de operaciones" icon={<ListIcon className="af-icon"/>} />
-        <SidebarElement name="Perfiles" icon={<TuneIcon className="af-icon"/>} options={profileOptionsArr}/>
-        <SidebarElement name="Reportes" icon={<InsertDriveFileIcon className="af-icon"/>} />
-      </div>
+      <SidebarElement name="Programación" icon={<MapIcon className="af-icon"/>} />
+      <SidebarElement name="Gestión de operaciones" icon={<ListIcon className="af-icon"/>} />
+      <SidebarElement name="Perfiles" icon={<TuneIcon className="af-icon"/>} options={profileOptionsArr}/>
+      <SidebarElement name="Reportes" icon={<InsertDriveFileIcon className="af-icon"/>} />
     </div>
   )
 }
