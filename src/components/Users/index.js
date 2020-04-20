@@ -4,10 +4,12 @@ import { Paper, Typography, Button } from '@material-ui/core'
 import GroupIcon from '@material-ui/icons/Group'
 import UsersTable from './../UsersTable'
 import UserModal from './../UserModal'
+import ConfirmModal from './../ConfirmModal'
 import './style.scss'
 
 const Users = props => {
-  const { users, openModal, modalTitle, showModal, hideModal } = props
+  const { users, openModal, modalTitle, showModal, hideModal, 
+    openConfirmModal, showConfirmModal } = props
   return (
     <Paper className="af-paperContainer" variant="outlined">
       <div className="af-header">
@@ -26,10 +28,18 @@ const Users = props => {
             title={modalTitle}
             hide={hideModal}
           />
+          <ConfirmModal 
+            open={openConfirmModal}
+            hide={hideModal}
+          />
         </div>
       </div>
       <div className="af-table">
-        <UsersTable users={users} showModal={showModal} />
+        <UsersTable 
+          users={users} 
+          showModal={showModal} 
+          showConfirmModal={showConfirmModal}
+        />
       </div>
     </Paper>
   )
@@ -41,6 +51,8 @@ Users.propTypes = {
   modalTitle: PropTypes.string.isRequired,
   showModal: PropTypes.func.isRequired,
   hideModal: PropTypes.func.isRequired,
+  openConfirmModal: PropTypes.bool.isRequired,
+  showConfirmModal: PropTypes.func.isRequired
 }
 
 export default Users

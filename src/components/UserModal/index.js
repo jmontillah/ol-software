@@ -8,10 +8,16 @@ import './style.scss'
 const UserModal = props => {
   const { title, open, hide } = props
   return (
-    <Dialog open={open} fullWidth={true} maxWidth="md" className="af-mainDialog">
+    <Dialog 
+      open={open} 
+      fullWidth={true} 
+      maxWidth="md" 
+      className="af-mainDialog"
+      onClose={() => hide('openModal')}
+    >
       <DialogTitle className="af-title">
         {title}
-        <CloseIcon onClick={() => hide()}/>
+        <CloseIcon onClick={() => hide('openModal')}/>
       </DialogTitle>
       <DialogContent className="af-content">
         <div className="af-twoInputs">

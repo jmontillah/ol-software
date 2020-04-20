@@ -8,7 +8,7 @@ import { usersTableColumns } from './../../constants'
 import './style.scss'
 
 const UsersTable = props => {
-  const { users, showModal } = props
+  const { users, showModal, showConfirmModal } = props
   return (
     <TableContainer className="af-tableContainer">
       <Table size="small">
@@ -37,7 +37,11 @@ const UsersTable = props => {
                   className="af-icon af-blue"
                   onClick={() => showModal('Editar usuario')}
                 />
-                <DeleteIcon fontSize="small" className="af-icon"/>
+                <DeleteIcon 
+                  fontSize="small" 
+                  className="af-icon"
+                  onClick={() => showConfirmModal()}
+                />
               </TableCell>
             </TableRow>
           )}
@@ -49,6 +53,8 @@ const UsersTable = props => {
 
 UsersTable.propTypes = {
   users: PropTypes.array.isRequired,
+  showModal: PropTypes.func.isRequired,
+  showConfirmModal: PropTypes.func.isRequired,
 }
 
 export default UsersTable

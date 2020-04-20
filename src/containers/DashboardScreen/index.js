@@ -17,7 +17,8 @@ class DashboardScreen extends Component {
       username: checkSession(),
       openModal: false,
       modalTitle: '',
-      users: getUsers()
+      users: getUsers(),
+      openConfirmModal: false
     }
   }
 
@@ -30,8 +31,12 @@ class DashboardScreen extends Component {
     this.setState({openModal: true, modalTitle: title})
   }
 
-  hideModal = () => {
-    this.setState({openModal: false})
+  showConfirmModal = () => {
+    this.setState({openConfirmModal: true})
+  }
+
+  hideModal = (modal) => {
+    this.setState({[modal]: false})
   }
 
   render() {
@@ -54,6 +59,8 @@ class DashboardScreen extends Component {
                   hideModal={this.hideModal}
                   modalTitle={this.state.modalTitle}
                   users={this.state.users}
+                  openConfirmModal={this.state.openConfirmModal}
+                  showConfirmModal={this.showConfirmModal}
                 />
               </Grid>
               <Grid item xs={3}>
