@@ -6,7 +6,8 @@ import PropTypes from 'prop-types'
 import './style.scss'
 
 const UserModal = props => {
-  const { title, open, hide, newUserForm, onChange, newUserFn, roles } = props
+  const { title, open, hide, newUserForm, onChange, newUserFn, roles,
+    updateUser, edit } = props
   return (
     <Dialog 
       open={open} 
@@ -125,12 +126,15 @@ const UserModal = props => {
         </div>
         <div className="af-buttons">
           <div className="af-btnDiv accept">
-            <Button className="af-btn" onClick={() => newUserFn()}>
+            <Button 
+              className="af-btn" 
+              onClick={edit ? () => updateUser() : () => newUserFn()}
+            >
               Aceptar
             </Button>
           </div>
           <div className="af-btnDiv cancel">
-            <Button className="af-btn" onClick={() => hide()}>
+            <Button className="af-btn" onClick={() => hide('openModal')}>
               Cancelar
             </Button>
           </div>
@@ -148,6 +152,8 @@ UserModal.propTypes = {
   onChange: PropTypes.func.isRequired,
   newUserFn: PropTypes.func.isRequired,
   roles: PropTypes.array.isRequired,
+  updateUser: PropTypes.func.isRequired,
+  edit: PropTypes.bool.isRequired,
 }
 
 export default UserModal

@@ -7,7 +7,8 @@ import Users from './../../components/Users'
 import SearchForm from './../../components/SearchForm'
 import Footer from './../../components/Footer'
 import { checkSession, logutSession } from './../../utils'
-import { getUsers, filterUsers, getRoles, createUser } from './../../api'
+import { getUsers, filterUsers, getRoles, createUser, getUser,
+  updateUser } from './../../api'
 import './style.scss'
 
 class DashboardScreen extends Component {
@@ -31,6 +32,7 @@ class DashboardScreen extends Component {
         email: ''
       },
       newUserForm: {
+        _id: "",
         names: "",
         surnames: "",
         national_id: "",
@@ -39,7 +41,8 @@ class DashboardScreen extends Component {
         phone: "",
         email: "",
         password: ""
-      }
+      },
+      editInModal: false
     }
   }
 
@@ -48,8 +51,33 @@ class DashboardScreen extends Component {
     this.setState({username: false})
   }
 
-  showModal = (title) => {
-    this.setState({openModal: true, modalTitle: title})
+  showModal = (title, userId = '') => {
+    if (userId !== '') {
+      const userToEdit = getUser(userId)
+      this.setState({
+        openModal: true,
+        modalTitle: title,
+        newUserForm: userToEdit, 
+        editInModal: true
+      })
+    } else {
+      this.setState({
+        openModal: true,
+        modalTitle: title,
+        editInModal: false,
+        newUserForm: {
+          _id: "",
+          names: "",
+          surnames: "",
+          national_id: "",
+          role: "",
+          active: false,
+          phone: "",
+          email: "",
+          password: ""
+        }
+      })
+    }
   }
 
   showConfirmModal = userId => {
@@ -92,6 +120,11 @@ class DashboardScreen extends Component {
     this.setState({users: getUsers(), openModal: false})
   }
 
+  updateUserFn = () => {
+    updateUser(this.state.newUserForm)
+    this.setState({users: getUsers(), openModal: false})
+  }
+
   render() {
     return (
       <div className="af-dashboardContainer">
@@ -119,6 +152,8 @@ class DashboardScreen extends Component {
                   onChangeNewUserForm={this.onChangeNewUserForm}
                   newUserFn={this.createUserFn}
                   roles={this.state.roles}
+                  updateUser={this.updateUserFn}
+                  editInModal={this.state.editInModal}
                 />
               </Grid>
               <Grid item xs={3}>

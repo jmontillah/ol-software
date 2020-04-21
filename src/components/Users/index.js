@@ -10,7 +10,7 @@ import './style.scss'
 const Users = props => {
   const { users, openModal, modalTitle, showModal, hideModal, 
     openConfirmModal, showConfirmModal, userId, newUserForm,
-    onChangeNewUserForm, newUserFn, roles } = props
+    onChangeNewUserForm, newUserFn, roles, updateUser, editInModal } = props
   return (
     <Paper className="af-paperContainer" variant="outlined">
       <div className="af-header">
@@ -32,6 +32,8 @@ const Users = props => {
             onChange={onChangeNewUserForm}
             newUserFn={newUserFn}
             roles={roles}
+            updateUser={updateUser}
+            edit={editInModal}
           />
           <ConfirmModal 
             open={openConfirmModal}
@@ -64,6 +66,8 @@ Users.propTypes = {
   onChangeNewUserForm: PropTypes.func.isRequired,
   newUserFn: PropTypes.func.isRequired,
   roles: PropTypes.array.isRequired,
+  updateUser: PropTypes.func.isRequired,
+  editInModal: PropTypes.bool.isRequired,
 }
 
 export default Users

@@ -36,7 +36,7 @@ const UsersTable = props => {
                 <EditIcon 
                   fontSize="small" 
                   className="af-icon af-blue"
-                  onClick={() => showModal('Editar usuario')}
+                  onClick={() => showModal('Editar usuario', `${user._id}`)}
                 />
                 <DeleteIcon 
                   fontSize="small" 

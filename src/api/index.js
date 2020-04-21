@@ -18,6 +18,17 @@ export const getUsers = () => {
   return finalArr
 }
 
+export const getUser = userId => {
+  const userToReturn = JSON.parse(JSON.stringify([...users].find(us => us._id === userId)))
+  userToReturn.role = userToReturn.role._id
+  return userToReturn
+}
+
+export const updateUser = userObj => {
+  let index = users.findIndex(us => us._id === userObj._id)
+  users[index] = userObj
+}
+
 export const deleteUser = userId => {
   users = users.filter(user => user._id !== userId)
 }
