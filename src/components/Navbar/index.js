@@ -7,11 +7,11 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import './style.scss'
 
 const Navbar = props => {
-  const { username, logoutFn } = props
+  const { username, logoutFn, toggleSidebar } = props
   return (
     <div className="af-navbarContainer">
       <div className="af-left">
-        <MenuIcon className="af-icon"/>
+        <MenuIcon className="af-icon" onClick={() => toggleSidebar()}/>
         <Typography variant="h6" className="af-title">
           Prueba Front-end
         </Typography>
@@ -33,6 +33,7 @@ const Navbar = props => {
 Navbar.propTypes = {
   username: PropTypes.string.isRequired,
   logoutFn: PropTypes.func.isRequired,
+  toggleSidebar: PropTypes.func.isRequired,
 }
 
 export default Navbar

@@ -7,15 +7,28 @@ import './style.scss'
 
 const SidebarElement = props => {
   const [expanded, setExpanded] = useState(false)
-  const { name, icon, options = []} = props
+  const { show, name, icon, options = []} = props
+  const lightOption = (e) => {
+    const classToToggle = 'af-selected'
+    var elements = document.querySelectorAll(`.${classToToggle}`);
+    elements.forEach(el => {
+      el.className = el.className.replace(/af-selected/, "");
+    });
+    e.target.parentElement.parentElement.className += ' ' + classToToggle
+  }
   return (
     <div className="af-expansionPanelContainer">
-      <ExpansionPanel className="af-expansionPanel" expanded={expanded} onChange={() => setExpanded(!expanded)}>
+      <ExpansionPanel 
+        className="af-expansionPanel" 
+        expanded={expanded} 
+        onChange={() => setExpanded(!expanded)}
+        onClick={(e) => lightOption(e)}
+      >
         <ExpansionPanelSummary 
-          className="af-panelSummary"
+          className={`af-panelSummary ${!show ? 'af-nDisplay' : ''}`}
           expandIcon={<ExpandMoreIcon className="af-icon af-expand"/>}>
           {icon}
-          <Typography className="af-text" variant="subtitle2">
+          <Typography className={`af-text ${!show ? 'af-nDisplay' : ''}`} variant="subtitle2">
             {name}
           </Typography>
         </ExpansionPanelSummary>
@@ -24,7 +37,10 @@ const SidebarElement = props => {
           {options.map(opt => 
               <div className="af-element" key={opt.name}>
                 {opt.icon}
-                <Typography className="af-text" variant="subtitle2">
+                <Typography 
+                  className={`af-text ${!show ? 'af-nDisplay' : ''}`} 
+                  variant="subtitle2"
+                >
                   {opt.name}
                 </Typography>
               </div>
@@ -37,6 +53,7 @@ const SidebarElement = props => {
 }
 
 SidebarElement.propTypes = {
+  show: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
   icon: PropTypes.element.isRequired,
   options: PropTypes.array

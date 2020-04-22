@@ -10,4 +10,13 @@
       padding: 1rem;
     }
   }
+  // Sidebar not expanded
+  .af-sbNExpanded {
+    max-width: 4%;
+    flex-basis: 4%;;
+  }
+  .af-cntNExpanded {
+    max-width: 96%;
+    flex-basis: 96%;;
+  }
 }

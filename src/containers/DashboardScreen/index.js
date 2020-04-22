@@ -16,6 +16,7 @@ class DashboardScreen extends Component {
     super(props);
     this.state = {
       username: checkSession(),
+      sidebarExpanded: false,
       openModal: false,
       modalTitle: '',
       openConfirmModal: false,
@@ -45,6 +46,8 @@ class DashboardScreen extends Component {
       editInModal: false
     }
   }
+
+  toggleSidebar = () => this.setState({sidebarExpanded: !this.state.sidebarExpanded})
 
   logoutFn = async () => {
     logutSession()
@@ -132,11 +135,23 @@ class DashboardScreen extends Component {
           <Redirect to="/login" />
         }
         <Grid container spacing={0}>
-          <Grid item xs={2}>
-            <Sidebar />
+          <Grid 
+            className={!this.state.sidebarExpanded ? 'af-sbNExpanded' : ''} 
+            item 
+            xs={2}
+          >
+            <Sidebar show={this.state.sidebarExpanded}/>
           </Grid>
-          <Grid item xs={10} className="af-content">
-            <Navbar username={this.state.username} logoutFn={this.logoutFn}/>
+          <Grid 
+            item 
+            xs={10} 
+            className={`af-content ${!this.state.sidebarExpanded ? 'af-cntNExpanded' : ''}`}
+          >
+            <Navbar 
+              username={this.state.username}
+              logoutFn={this.logoutFn}
+              toggleSidebar={this.toggleSidebar}
+            />
             <Grid container spacing={1} className="af-info">
               <Grid item xs={9}>
                 <Users 

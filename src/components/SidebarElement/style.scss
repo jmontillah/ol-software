@@ -21,6 +21,14 @@
         display: flex;
         align-items: center;
       }
+      &.af-nDisplay {
+        .af-icon {
+          margin-right: 0;
+        }
+        .MuiExpansionPanelSummary-expandIcon {
+          display: none;
+        }
+      }
     }
     &:first-child {
       margin-top: 1rem !important;
