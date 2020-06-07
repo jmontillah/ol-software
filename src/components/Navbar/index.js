@@ -13,7 +13,7 @@ const Navbar = props => {
       <div className="af-left">
         <MenuIcon className="af-icon" onClick={() => toggleSidebar()}/>
         <Typography variant="h6" className="af-title">
-          Prueba Front-end
+          Administrador web
         </Typography>
       </div>
       <div className="af-right">

@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="af-footerContainer">
       <Typography variant="subtitle2">
-        OLSoftware - 2018
+        Jhonnatan Montilla - 2020
       </Typography>
     </div>
   )

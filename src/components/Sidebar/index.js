@@ -11,8 +11,10 @@ import ContactsIcon from '@material-ui/icons/Contacts'
 import SidebarElement from './../SidebarElement'
 import './style.scss'
 
-const profileOptionsArr = [{name: "Roles", icon: <AssignmentIndIcon className="af-icon"/>},
-                          {name: "Usuarios", icon: <ContactsIcon className="af-icon"/>}]
+const profileOptionsArr = [
+  {name: "Roles", icon: <AssignmentIndIcon className="af-icon"/>},
+  {name: "Usuarios", icon: <ContactsIcon className="af-icon"/>}
+]
 
 const Sidebar = props => {
   const { show } = props
@@ -21,7 +23,7 @@ const Sidebar = props => {
       <div className="af-title">
         <FiberManualRecordIcon className="af-icon" fontSize="large"/>
         <Typography className={`af-text ${!show ? 'af-nDisplay' : ''}`} variant="subtitle1">
-          OLSoftware
+          Administrador
         </Typography>
       </div>
       <Divider className="af-divider"/>

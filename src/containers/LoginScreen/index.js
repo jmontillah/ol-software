@@ -45,12 +45,12 @@ class LoginScreen extends Component {
           }} />
         }
         <div className="af-text">
-          <Typography className="af-title" variant="h5">
-            Aplicación<br />
-            OLSoftware
+          <Typography className="af-title" variant="h4">
+            Administrador <br />
+            de usuarios
           </Typography>
-          <Typography variant="body2">
-            Prueba práctica Front-end senior
+          <Typography variant="body1">
+            Administrador web
           </Typography>
         </div>
         <div className="af-loginCard">
