@@ -1,6 +1,7 @@
 @import './../../constants/style.scss';
 
 .af-tableContainer {
+  overflow-x: hidden !important;
   .af-columnTitle {
     font-weight: 600;
   }
@@ -8,6 +9,24 @@
     cursor: pointer;
     &.af-blue {
       color: $blue;
+    }
+  }
+  .MuiTableBody-root {
+    tr {
+      height: 4rem;
+    }
+  }
+}
+.af-tablePagination {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  .MuiTablePagination-toolbar {
+    p:first-of-type {
+      display: none;
+    }
+    .MuiTablePagination-selectRoot {
+      display: none;
     }
   }
 }
