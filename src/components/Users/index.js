@@ -10,7 +10,7 @@ import './style.scss';
 const Users = props => {
   const { users, openModal, modalTitle, showModal, hideModal, 
     openConfirmModal, showConfirmModal, userId, newUserForm,
-    onChangeNewUserForm, newUserFn, roles, updateUser, editInModal } = props;
+    newUserFn, roles, updateUser, editInModal } = props;
 
   return (
     <Paper className="af-paperContainer" variant="outlined">
@@ -30,7 +30,6 @@ const Users = props => {
             title={modalTitle}
             hide={hideModal}
             newUserForm={newUserForm}
-            onChange={onChangeNewUserForm}
             newUserFn={newUserFn}
             roles={roles}
             updateUser={updateUser}
@@ -64,7 +63,6 @@ Users.propTypes = {
   showConfirmModal: PropTypes.func.isRequired,
   userId: PropTypes.string.isRequired,
   newUserForm: PropTypes.object.isRequired,
-  onChangeNewUserForm: PropTypes.func.isRequired,
   newUserFn: PropTypes.func.isRequired,
   roles: PropTypes.array.isRequired,
   updateUser: PropTypes.func.isRequired,

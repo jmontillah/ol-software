@@ -1,7 +1,7 @@
 @import './../../constants/style.scss';
 
 .af-tableContainer {
-  overflow-x: hidden !important;
+  overflow-x: auto !important;
   .af-columnTitle {
     font-weight: 600;
   }

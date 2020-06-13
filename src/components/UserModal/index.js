@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Dialog, DialogTitle, DialogContent, FormControl,
   InputLabel, InputBase, Select, MenuItem, Button } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
@@ -6,8 +6,24 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 const UserModal = props => {
-  const { title, open, hide, newUserForm, onChange, newUserFn, roles,
-    updateUser, edit } = props;
+  const { title, open, hide, newUserForm, newUserFn, roles, updateUser, 
+    edit } = props;
+  
+  const [form, setForm] = useState({...newUserForm});
+
+  useEffect(() => {
+    setForm(newUserForm);
+  }, [newUserForm]);
+
+  /* useCallback is for declaring only once the function, because this 
+  component is called more then once, [form] is what is on focus (when changes) 
+  to execute this function */
+  const onChange = useCallback((e, inForm) => {
+    setForm({
+      ...form,
+      [inForm]: e.target.value
+    })
+  }, [form]);
 
   return (
     <Dialog 
@@ -30,7 +46,7 @@ const UserModal = props => {
             <InputBase 
               id="namesInput" 
               className="af-inputBase"
-              value={newUserForm.names}
+              value={form.names}
               onChange={(e) => onChange(e, 'names')}
             />
           </FormControl>
@@ -41,7 +57,7 @@ const UserModal = props => {
           <InputBase 
             id="lastnamesInput" 
             className="af-inputBase"
-            value={newUserForm.surnames}
+            value={form.surnames}
             onChange={(e) => onChange(e, 'surnames')}
           />
         </FormControl>
@@ -54,7 +70,7 @@ const UserModal = props => {
             <InputBase 
               id="idInput" 
               className="af-inputBase"
-              value={newUserForm.national_id}
+              value={form.national_id}
               onChange={(e) => onChange(e, 'national_id')}
             />
           </FormControl>
@@ -64,7 +80,7 @@ const UserModal = props => {
           </InputLabel>
           <Select
             labelId="roleInput"
-            value={newUserForm.role}
+            value={form.role}
             onChange={(e) => onChange(e, 'role')}
             input={<InputBase className="af-inputBase"/>}
           >
@@ -81,7 +97,7 @@ const UserModal = props => {
             </InputLabel>
             <Select
               labelId="stateInput"
-              value={newUserForm.active}
+              value={form.active}
               onChange={(e) => onChange(e, 'active')}
               input={<InputBase className="af-inputBase"/>}
             >
@@ -96,7 +112,7 @@ const UserModal = props => {
             <InputBase 
               id="passwordInput" 
               className="af-inputBase"
-              value={newUserForm.password}
+              value={form.password}
               onChange={(e) => onChange(e, 'password')}
             />
           </FormControl>
@@ -109,7 +125,7 @@ const UserModal = props => {
             <InputBase 
               id="phoneInput" 
               className="af-inputBase"
-              value={newUserForm.phone}
+              value={form.phone}
               onChange={(e) => onChange(e, 'phone')}
             />
           </FormControl>
@@ -120,7 +136,7 @@ const UserModal = props => {
             <InputBase 
               id="emailInput" 
               className="af-inputBase"
-              value={newUserForm.email}
+              value={form.email}
               onChange={(e) => onChange(e, 'email')}
             />
           </FormControl>
@@ -129,7 +145,7 @@ const UserModal = props => {
           <div className="af-btnDiv accept">
             <Button 
               className="af-btn" 
-              onClick={edit ? () => updateUser() : () => newUserFn()}
+              onClick={edit ? () => updateUser(form) : () => newUserFn(form)}
             >
               Aceptar
             </Button>

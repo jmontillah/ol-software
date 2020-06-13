@@ -89,19 +89,13 @@ class DashboardScreen extends Component {
     this.setState({users: getUsers()});
   }
 
-  onChangeNewUserForm = (e, item) => {
-    let stateForm = this.state.newUserForm;
-    stateForm[item] = e.target.value;
-    this.setState({newUserForm: stateForm});
-  }
-
-  createUserFn = () => {
-    createUser(this.state.newUserForm);
+  createUserFn = userForm => {
+    createUser(userForm);
     this.setState({users: getUsers(), openModal: false});
   }
 
-  updateUserFn = () => {
-    updateUser(this.state.newUserForm);
+  updateUserFn = userForm => {
+    updateUser(userForm);
     this.setState({users: getUsers(), openModal: false});
   }
 
@@ -150,7 +144,6 @@ class DashboardScreen extends Component {
                   showConfirmModal={this.showConfirmModal}
                   userId={this.state.userId}
                   newUserForm={this.state.newUserForm}
-                  onChangeNewUserForm={this.onChangeNewUserForm}
                   newUserFn={this.createUserFn}
                   roles={this.state.roles}
                   updateUser={this.updateUserFn}

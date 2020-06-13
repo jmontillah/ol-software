@@ -139,7 +139,6 @@ const SearchForm = props => {
 SearchForm.propTypes = {
   roles: PropTypes.array.isRequired,
   filter: PropTypes.func.isRequired,
-  clear: PropTypes.func.isRequired,
 }
 
 export default SearchForm;
