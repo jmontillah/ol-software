@@ -1,6 +1,6 @@
-import React from 'react'
-import { Typography } from '@material-ui/core'
-import './style.scss'
+import React from 'react';
+import { Typography } from '@material-ui/core';
+import './style.scss';
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
         Jhonnatan Montilla - 2020
       </Typography>
     </div>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

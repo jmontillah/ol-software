@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
-import { Grid } from '@material-ui/core'
-import { Redirect } from 'react-router-dom'
-import Sidebar from './../../components/Sidebar'
-import Navbar from './../../components/Navbar'
-import Users from './../../components/Users'
-import SearchForm from './../../components/SearchForm'
-import Footer from './../../components/Footer'
-import { checkSession, logutSession } from './../../utils'
+import React, { Component } from 'react';
+import { Grid } from '@material-ui/core';
+import { Redirect } from 'react-router-dom';
+import Sidebar from './../../components/Sidebar';
+import Navbar from './../../components/Navbar';
+import Users from './../../components/Users';
+import SearchForm from './../../components/SearchForm';
+import Footer from './../../components/Footer';
+import { checkSession, logutSession } from './../../utils';
 import { getUsers, filterUsers, getRoles, createUser, getUser,
-  updateUser } from './../../api'
-import './style.scss'
+  updateUser } from './../../api';
+import './style.scss';
 
 class DashboardScreen extends Component {
   constructor(props) {
@@ -40,22 +40,22 @@ class DashboardScreen extends Component {
 
   toggleSidebar = () => this.setState({
     sidebarExpanded: !this.state.sidebarExpanded
-  })
+  });
 
   logoutFn = async () => {
-    logutSession()
-    this.setState({username: false})
+    logutSession();
+    this.setState({username: false});
   }
 
   showModal = (title, userId = '') => {
     if (userId !== '') {
-      const userToEdit = getUser(userId)
+      const userToEdit = getUser(userId);
       this.setState({
         openModal: true,
         modalTitle: title,
         newUserForm: userToEdit, 
         editInModal: true
-      })
+      });
     } else {
       this.setState({
         openModal: true,
@@ -72,37 +72,37 @@ class DashboardScreen extends Component {
           email: "",
           password: ""
         }
-      })
+      });
     }
   }
 
   showConfirmModal = userId => {
-    this.setState({openConfirmModal: true, userId})
+    this.setState({openConfirmModal: true, userId});
   }
 
   hideModal = (modal) => {
-    this.setState({[modal]: false})
+    this.setState({[modal]: false});
   }
 
   filterUsersFn = form => {
-    filterUsers(form)
-    this.setState({users: getUsers()})
+    filterUsers(form);
+    this.setState({users: getUsers()});
   }
 
   onChangeNewUserForm = (e, item) => {
-    let stateForm = this.state.newUserForm
-    stateForm[item] = e.target.value
-    this.setState({newUserForm: stateForm})
+    let stateForm = this.state.newUserForm;
+    stateForm[item] = e.target.value;
+    this.setState({newUserForm: stateForm});
   }
 
   createUserFn = () => {
-    createUser(this.state.newUserForm)
-    this.setState({users: getUsers(), openModal: false})
+    createUser(this.state.newUserForm);
+    this.setState({users: getUsers(), openModal: false});
   }
 
   updateUserFn = () => {
-    updateUser(this.state.newUserForm)
-    this.setState({users: getUsers(), openModal: false})
+    updateUser(this.state.newUserForm);
+    this.setState({users: getUsers(), openModal: false});
   }
 
   componentWillMount() {
@@ -111,7 +111,7 @@ class DashboardScreen extends Component {
       username: checkSession(),
       users: getUsers(),
       roles: getRoles(),
-    })
+    });
   }
 
   render() {
@@ -168,8 +168,8 @@ class DashboardScreen extends Component {
           </Grid>
         </Grid>
       </div>
-    )
+    );
   }
 }
 
-export default DashboardScreen
+export default DashboardScreen;

@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Typography } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu'
-import AccountCircleIcon from '@material-ui/icons/AccountCircle'
-import ExitToAppIcon from '@material-ui/icons/ExitToApp'
-import './style.scss'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Typography } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import './style.scss';
 
 const Navbar = props => {
   const { username, logoutFn, toggleSidebar } = props
@@ -27,7 +27,7 @@ const Navbar = props => {
         />
       </div>
     </div>
-  )
+  );
 }
 
 Navbar.propTypes = {
@@ -36,4 +36,4 @@ Navbar.propTypes = {
   toggleSidebar: PropTypes.func.isRequired,
 }
 
-export default Navbar
+export default Navbar;

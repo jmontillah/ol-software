@@ -1,15 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Dialog, DialogContent, Typography, Button } from '@material-ui/core'
-import { deleteUser } from './../../api'
-import './style.scss'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Dialog, DialogContent, Typography, Button } from '@material-ui/core';
+import { deleteUser } from './../../api';
+import './style.scss';
 
 const ConfirmModal = props => {
-  const { open, hide, userId } = props
+  const { open, hide, userId } = props;
 
   const onDelete = () => {
-    deleteUser(userId)
-    hide('openConfirmModal')
+    deleteUser(userId);
+    hide('openConfirmModal');
   }
 
   return (
@@ -36,7 +36,7 @@ const ConfirmModal = props => {
         </div>
       </DialogContent>
     </Dialog>
-  )
+  );
 }
 
 ConfirmModal.propTypes = {
@@ -45,4 +45,4 @@ ConfirmModal.propTypes = {
   userId: PropTypes.string.isRequired,
 }
 
-export default ConfirmModal
+export default ConfirmModal;

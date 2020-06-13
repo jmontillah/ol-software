@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
 import { Dialog, DialogTitle, DialogContent, FormControl,
-  InputLabel, InputBase, Select, MenuItem, Button } from '@material-ui/core'
-import CloseIcon from '@material-ui/icons/Close'
-import PropTypes from 'prop-types'
-import './style.scss'
+  InputLabel, InputBase, Select, MenuItem, Button } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
+import PropTypes from 'prop-types';
+import './style.scss';
 
 const UserModal = props => {
   const { title, open, hide, newUserForm, onChange, newUserFn, roles,
-    updateUser, edit } = props
+    updateUser, edit } = props;
+
   return (
     <Dialog 
       open={open} 
@@ -141,7 +142,7 @@ const UserModal = props => {
         </div>
       </DialogContent>
     </Dialog>
-  )
+  );
 }
 
 UserModal.propTypes = {
@@ -156,4 +157,4 @@ UserModal.propTypes = {
   edit: PropTypes.bool.isRequired,
 }
 
-export default UserModal
+export default UserModal;

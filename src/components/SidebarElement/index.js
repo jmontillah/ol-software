@@ -1,21 +1,23 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Typography, ExpansionPanel, ExpansionPanelSummary,
-  ExpansionPanelDetails } from '@material-ui/core'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import './style.scss'
+  ExpansionPanelDetails } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import './style.scss';
 
 const SidebarElement = props => {
-  const [expanded, setExpanded] = useState(false)
-  const { show, name, icon, options = []} = props
+  const [expanded, setExpanded] = useState(false);
+  const { show, name, icon, options = []} = props;
+
   const lightOption = (e) => {
-    const classToToggle = 'af-selected'
+    const classToToggle = 'af-selected';
     var elements = document.querySelectorAll(`.${classToToggle}`);
     elements.forEach(el => {
       el.className = el.className.replace(/af-selected/, "");
     });
-    e.target.parentElement.parentElement.className += ' ' + classToToggle
+    e.target.parentElement.parentElement.className += ' ' + classToToggle;
   }
+
   return (
     <div className="af-expansionPanelContainer">
       <ExpansionPanel 
@@ -49,7 +51,7 @@ const SidebarElement = props => {
         }
       </ExpansionPanel>
     </div>
-  )
+  );
 }
 
 SidebarElement.propTypes = {
@@ -59,4 +61,4 @@ SidebarElement.propTypes = {
   options: PropTypes.array
 }
 
-export default SidebarElement
+export default SidebarElement;

@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Paper, Typography, FormControl, InputLabel, InputBase,
-  Select, MenuItem, Button } from '@material-ui/core'
+  Select, MenuItem, Button } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-import './style.scss'
+import './style.scss';
 
 const SearchForm = props => {
   let { roles, filter } = props;
@@ -21,7 +21,7 @@ const SearchForm = props => {
     setForm({
       ...form,
       [inForm]: e.target.value
-    })
+    });
   }
 
   const clearForm = () => {
@@ -133,7 +133,7 @@ const SearchForm = props => {
         </div>
       </div>
     </Paper>
-  )
+  );
 }
 
 SearchForm.propTypes = {
@@ -142,4 +142,4 @@ SearchForm.propTypes = {
   clear: PropTypes.func.isRequired,
 }
 
-export default SearchForm
+export default SearchForm;

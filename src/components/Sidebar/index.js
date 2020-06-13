@@ -1,15 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Typography, Divider } from '@material-ui/core'
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord'
-import MapIcon from '@material-ui/icons/Map'
-import ListIcon from '@material-ui/icons/List'
-import TuneIcon from '@material-ui/icons/Tune'
-import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile'
-import AssignmentIndIcon from '@material-ui/icons/AssignmentInd'
-import ContactsIcon from '@material-ui/icons/Contacts'
-import SidebarElement from './../SidebarElement'
-import './style.scss'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Typography, Divider } from '@material-ui/core';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import MapIcon from '@material-ui/icons/Map';
+import ListIcon from '@material-ui/icons/List';
+import TuneIcon from '@material-ui/icons/Tune';
+import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
+import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
+import ContactsIcon from '@material-ui/icons/Contacts';
+import SidebarElement from './../SidebarElement';
+import './style.scss';
 
 const profileOptionsArr = [
   {name: "Roles", icon: <AssignmentIndIcon className="af-icon"/>},
@@ -17,7 +17,7 @@ const profileOptionsArr = [
 ]
 
 const Sidebar = props => {
-  const { show } = props
+  const { show } = props;
   return (
     <div className="af-sidebarContainer">
       <div className="af-title">
@@ -32,11 +32,11 @@ const Sidebar = props => {
       <SidebarElement show={show} name="Perfiles" icon={<TuneIcon className="af-icon"/>} options={profileOptionsArr}/>
       <SidebarElement show={show} name="Reportes" icon={<InsertDriveFileIcon className="af-icon"/>} />
     </div>
-  )
+  );
 }
 
 Sidebar.propTypes = {
   show: PropTypes.bool.isRequired,
 }
 
-export default Sidebar
+export default Sidebar;

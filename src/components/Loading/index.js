@@ -1,7 +1,7 @@
-import React from 'react'
-import { Typography } from '@material-ui/core'
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord'
-import './style.scss'
+import React from 'react';
+import { Typography } from '@material-ui/core';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import './style.scss';
 
 const Loading = () => {
   return (
@@ -15,7 +15,7 @@ const Loading = () => {
         <FiberManualRecordIcon className="af-circle" fontSize="small"/>
       </div>
     </div>
-  )
+  );
 }
 
-export default Loading
+export default Loading;

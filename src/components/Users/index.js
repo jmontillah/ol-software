@@ -1,16 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Paper, Typography, Button } from '@material-ui/core'
-import GroupIcon from '@material-ui/icons/Group'
-import UsersTable from './../UsersTable'
-import UserModal from './../UserModal'
-import ConfirmModal from './../ConfirmModal'
-import './style.scss'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Paper, Typography, Button } from '@material-ui/core';
+import GroupIcon from '@material-ui/icons/Group';
+import UsersTable from './../UsersTable';
+import UserModal from './../UserModal';
+import ConfirmModal from './../ConfirmModal';
+import './style.scss';
 
 const Users = props => {
   const { users, openModal, modalTitle, showModal, hideModal, 
     openConfirmModal, showConfirmModal, userId, newUserForm,
-    onChangeNewUserForm, newUserFn, roles, updateUser, editInModal } = props
+    onChangeNewUserForm, newUserFn, roles, updateUser, editInModal } = props;
+
   return (
     <Paper className="af-paperContainer" variant="outlined">
       <div className="af-header">
@@ -50,7 +51,7 @@ const Users = props => {
         />
       </div>
     </Paper>
-  )
+  );
 }
 
 Users.propTypes = {
@@ -70,4 +71,4 @@ Users.propTypes = {
   editInModal: PropTypes.bool.isRequired,
 }
 
-export default Users
+export default Users;

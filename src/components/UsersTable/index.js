@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { TableContainer, Table, TableHead, TableRow, TableCell, 
-  TableBody, TablePagination, TableFooter } from '@material-ui/core'
-import EditIcon from '@material-ui/icons/Edit'
-import DeleteIcon from '@material-ui/icons/Delete'
-import { usersTableColumns } from './../../constants'
-import Aux from './../hoc/AuxFile'
-import './style.scss'
+  TableBody, TablePagination, TableFooter } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+import { usersTableColumns } from './../../constants';
+import Aux from './../hoc/AuxFile';
+import './style.scss';
 
 const UsersTable = props => {
-  const { users, showModal, showConfirmModal } = props
-  const [page, setPage] = useState(0)
-  const [rowsPerPage, setRowsPerPage] = useState(6)
-  const [usersToShow, setUsersToShow] = useState([...users.slice(0, rowsPerPage)])
+  const { users, showModal, showConfirmModal } = props;
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(6);
+  const [usersToShow, setUsersToShow] = useState(
+    [...users.slice(0, rowsPerPage)]
+  );
 
   const newPageFn = (event, newPage) => {
     setPage(newPage);
@@ -78,7 +80,7 @@ const UsersTable = props => {
         }
       />
     </Aux>
-  )
+  );
 }
 
 UsersTable.propTypes = {
@@ -87,4 +89,4 @@ UsersTable.propTypes = {
   showConfirmModal: PropTypes.func.isRequired,
 }
 
-export default UsersTable
+export default UsersTable;

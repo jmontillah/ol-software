@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Paper, Typography, InputBase, Button } from '@material-ui/core'
-import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
-import './style.scss'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Paper, Typography, InputBase, Button } from '@material-ui/core';
+import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import './style.scss';
 
 const LoginCard = props => {
   const { user, pass, onChange, error, loginFn } = props
@@ -45,7 +45,7 @@ const LoginCard = props => {
         Iniciar sesión
       </Button>
     </Paper>
-  )
+  );
 }
 
 LoginCard.propTypes = {
@@ -56,4 +56,4 @@ LoginCard.propTypes = {
   loginFn: PropTypes.func.isRequired,
 }
 
-export default LoginCard
+export default LoginCard;
