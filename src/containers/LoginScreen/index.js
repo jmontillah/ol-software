@@ -23,12 +23,12 @@ class LoginScreen extends Component {
     const loginRes = loginApi(this.state.user, this.state.pass)
     if (!loginRes) return this.setState({error: 'Hubo un error, verifica los campos.'})
     if (!loginRes.active) return this.setState({error: 'El usuario no está activo.'})
-    this.setState({loading: true})
-    setTimeout(() => {
-      this.setState({loading: false})
+    // this.setState({loading: true})
+    // setTimeout(() => {
+      // this.setState({loading: false})
       loginSession(loginRes.names + ' ' + loginRes.surnames)
       this.setState({username: loginRes.names + ' ' + loginRes.surnames})
-    }, 2000)
+    // }, 2000)
   }
 
   onChange = (e, input) => {
