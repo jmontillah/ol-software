@@ -15,23 +15,14 @@ class DashboardScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: checkSession(),
+      username: "",
       sidebarExpanded: false,
       openModal: false,
       modalTitle: '',
       openConfirmModal: false,
       userId: '',
-      users: getUsers(),
-      roles: getRoles(),
-      filterForm: {
-        names: '',
-        surnames: '',
-        national_id: '',
-        role: '',
-        active: '',
-        phone: '',
-        email: ''
-      },
+      users: [],
+      roles: [],
       newUserForm: {
         _id: "",
         names: "",
@@ -47,7 +38,9 @@ class DashboardScreen extends Component {
     }
   }
 
-  toggleSidebar = () => this.setState({sidebarExpanded: !this.state.sidebarExpanded})
+  toggleSidebar = () => this.setState({
+    sidebarExpanded: !this.state.sidebarExpanded
+  })
 
   logoutFn = async () => {
     logutSession()
@@ -91,25 +84,9 @@ class DashboardScreen extends Component {
     this.setState({[modal]: false})
   }
 
-  onChangeFilterForm = (e, item) => {
-    let stateForm = this.state.filterForm
-    stateForm[item] = e.target.value
-    this.setState({filterForm: stateForm})
-  }
-
-  filterUsersFn = () => {
-    filterUsers(this.state.filterForm)
+  filterUsersFn = form => {
+    filterUsers(form)
     this.setState({users: getUsers()})
-  }
-
-  clearFilterForm = () => {
-    let stateForm = this.state.filterForm
-    for (const key in stateForm) {
-      if (stateForm.hasOwnProperty(key)) {
-        stateForm[key] = '';
-      }
-    }
-    this.setState({filterForm: stateForm})
   }
 
   onChangeNewUserForm = (e, item) => {
@@ -126,6 +103,15 @@ class DashboardScreen extends Component {
   updateUserFn = () => {
     updateUser(this.state.newUserForm)
     this.setState({users: getUsers(), openModal: false})
+  }
+
+  componentWillMount() {
+    this.setState({
+      ...this.state,
+      username: checkSession(),
+      users: getUsers(),
+      roles: getRoles(),
+    })
   }
 
   render() {
@@ -173,11 +159,8 @@ class DashboardScreen extends Component {
               </Grid>
               <Grid item xs={3}>
                 <SearchForm 
-                  onChange={this.onChangeFilterForm}
-                  filterForm={this.state.filterForm}
                   roles={this.state.roles}
                   filter={this.filterUsersFn}
-                  clear={this.clearFilterForm}
                 />
               </Grid>
             </Grid>

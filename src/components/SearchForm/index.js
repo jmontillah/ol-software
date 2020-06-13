@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Paper, Typography, FormControl, InputLabel, InputBase,
   Select, MenuItem, Button } from '@material-ui/core'
@@ -6,7 +6,30 @@ import SearchIcon from '@material-ui/icons/Search';
 import './style.scss'
 
 const SearchForm = props => {
-  let { filterForm, onChange, roles, filter, clear } = props
+  let { roles, filter } = props;
+  const [form, setForm] = useState({
+    names: '',
+    surnames: '',
+    national_id: '',
+    role: '',
+    active: '',
+    phone: '',
+    email: ''
+  });
+
+  const onChange = (e, inForm) => {
+    setForm({
+      ...form,
+      [inForm]: e.target.value
+    })
+  }
+
+  const clearForm = () => {
+    const formClear = {...form};
+    Object.keys(formClear).map(key => formClear[key] = '');
+    setForm(formClear);
+  }
+
   return (
     <Paper className="af-searchFormPaper" variant="outlined">
       <div className="af-title">
@@ -23,7 +46,7 @@ const SearchForm = props => {
           <InputBase 
             id="namesInput" 
             className="af-inputBase"
-            value={filterForm.names}
+            value={form.names}
             onChange={(e) => onChange(e, 'names')}
           />
         </FormControl>
@@ -34,7 +57,7 @@ const SearchForm = props => {
           <InputBase 
             id="lastnamesInput" 
             className="af-inputBase"
-            value={filterForm.surnames}
+            value={form.surnames}
             onChange={(e) => onChange(e, 'surnames')}
           />
         </FormControl>
@@ -45,7 +68,7 @@ const SearchForm = props => {
           <InputBase 
             id="idInput" 
             className="af-inputBase"
-            value={filterForm.national_id}
+            value={form.national_id}
             onChange={(e) => onChange(e, 'national_id')}
           />
         </FormControl>
@@ -55,7 +78,7 @@ const SearchForm = props => {
           </InputLabel>
           <Select
             labelId="roleInput"
-            value={filterForm.role}
+            value={form.role}
             onChange={(e) => onChange(e, 'role')}
             input={<InputBase className="af-inputBase"/>}
           >
@@ -70,7 +93,7 @@ const SearchForm = props => {
           </InputLabel>
           <Select
             labelId="stateInput"
-            value={filterForm.active}
+            value={form.active}
             onChange={(e) => onChange(e, 'active')}
             input={<InputBase className="af-inputBase"/>}
           >
@@ -85,7 +108,7 @@ const SearchForm = props => {
           <InputBase 
             id="phoneInput" 
             className="af-inputBase"
-            value={filterForm.phone}
+            value={form.phone}
             onChange={(e) => onChange(e, 'phone')}
           />
         </FormControl>
@@ -96,13 +119,17 @@ const SearchForm = props => {
           <InputBase 
             id="emailInput"
             className="af-inputBase"
-            value={filterForm.email}
+            value={form.email}
             onChange={(e) => onChange(e, 'email')}
           />
         </FormControl>
         <div className="af-buttons">
-          <Button className="af-btn filter" onClick={() => filter()}>Filtrar</Button>
-          <Button className="af-btn clear" onClick={() => clear()}>Limpiar</Button>
+          <Button className="af-btn filter" onClick={() => filter(form)}>
+            Filtrar
+          </Button>
+          <Button className="af-btn clear" onClick={() => clearForm()}>
+            Limpiar
+          </Button>
         </div>
       </div>
     </Paper>
@@ -110,8 +137,6 @@ const SearchForm = props => {
 }
 
 SearchForm.propTypes = {
-  filterForm: PropTypes.object.isRequired,
-  onChange: PropTypes.func.isRequired,
   roles: PropTypes.array.isRequired,
   filter: PropTypes.func.isRequired,
   clear: PropTypes.func.isRequired,
