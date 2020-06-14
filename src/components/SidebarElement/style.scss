@@ -45,9 +45,10 @@
     }
     .af-element {
       display: flex;
-      margin: 1rem 0;
+      padding: .5rem;
+      margin-bottom: .5rem;
       &:last-child {
-        margin-bottom: .5rem;
+        margin-bottom: 0;
       }
     }
   }

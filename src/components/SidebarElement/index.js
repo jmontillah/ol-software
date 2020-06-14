@@ -7,15 +7,23 @@ import './style.scss';
 
 const SidebarElement = props => {
   const [expanded, setExpanded] = useState(false);
+  const [selected, setSelected] = useState(false);
+  const [selectedChild, setSelectedChild] = useState(false);
   const { show, name, icon, options = []} = props;
 
-  const lightOption = (e) => {
-    const classToToggle = 'af-selected';
-    var elements = document.querySelectorAll(`.${classToToggle}`);
-    elements.forEach(el => {
-      el.className = el.className.replace(/af-selected/, "");
-    });
-    e.target.parentElement.parentElement.className += ' ' + classToToggle;
+  const lightOption = (e, elementClass, subCompClass = undefined) => {
+    const classToToggle = `.af-selected`;
+    if (options.length <= 0 || subCompClass) {
+      var elements = document.querySelectorAll(`${classToToggle}`);
+      elements.forEach(el => {
+        el.className = el.className.replace(/af-selected/g, "");
+      });
+      if (elementClass === 'af-panelSummary') setSelected(true);
+    }
+    if (subCompClass) {
+      document.querySelector(`.${elementClass}.${subCompClass}`)
+        .className += ' af-selected';
+    }
   }
 
   return (
@@ -24,11 +32,20 @@ const SidebarElement = props => {
         className="af-expansionPanel" 
         expanded={expanded} 
         onChange={() => setExpanded(!expanded)}
-        onClick={(e) => lightOption(e)}
+        // onClick={(e) => lightOption(e)}
       >
         <ExpansionPanelSummary 
-          className={`af-panelSummary ${!show ? 'af-nDisplay' : ''}`}
-          expandIcon={<ExpandMoreIcon className="af-icon af-expand"/>}>
+          className={
+            `af-panelSummary 
+            ${!show ? 'af-nDisplay' : ''} 
+            ${(selected && options.length <= 0) ? 'af-selected' : ''}`
+          }
+          expandIcon={options.length > 0 ? 
+            <ExpandMoreIcon className="af-icon af-expand"/> : 
+            ''
+          }
+          onClick={(e) => lightOption(e, 'af-panelSummary')}
+        >
           {icon}
           <Typography className={`af-text ${!show ? 'af-nDisplay' : ''}`} variant="subtitle2">
             {name}
@@ -36,8 +53,14 @@ const SidebarElement = props => {
         </ExpansionPanelSummary>
         {options.length > 0 &&
           <ExpansionPanelDetails>
-          {options.map(opt => 
-              <div className="af-element" key={opt.name}>
+          {options.map((opt) => 
+              <div 
+                className={`af-element ${opt.name}`}
+                key={opt.name}
+                onClick={
+                  (e) => lightOption(e, 'af-element', opt.name)
+                }
+              >
                 {opt.icon}
                 <Typography 
                   className={`af-text ${!show ? 'af-nDisplay' : ''}`} 
