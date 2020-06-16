@@ -6,10 +6,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import './style.scss';
 
 const SidebarElement = props => {
+  const { show, name, icon, options = [], selectedProp = false, 
+    selectedSubEle = false } = props;
+    console.log(selectedSubEle)
   const [expanded, setExpanded] = useState(false);
-  const [selected, setSelected] = useState(false);
-  const [selectedChild, setSelectedChild] = useState(false);
-  const { show, name, icon, options = []} = props;
+  const [selected, setSelected] = useState(selectedProp);
 
   const lightOption = (e, elementClass, subCompClass = undefined) => {
     const classToToggle = `.af-selected`;
@@ -55,7 +56,11 @@ const SidebarElement = props => {
           <ExpansionPanelDetails>
           {options.map((opt) => 
               <div 
-                className={`af-element ${opt.name}`}
+                className={
+                  `af-element 
+                  ${opt.name} 
+                  ${opt.id == selectedSubEle ? 'af-selected' : ''}`
+                }
                 key={opt.name}
                 onClick={
                   (e) => lightOption(e, 'af-element', opt.name)

@@ -120,7 +120,10 @@ class DashboardScreen extends Component {
             item 
             xs={2}
           >
-            <Sidebar show={this.state.sidebarExpanded}/>
+            <Sidebar 
+              show={this.state.sidebarExpanded}
+              optSelected="2b"
+            />
           </Grid>
           <Grid 
             item 
