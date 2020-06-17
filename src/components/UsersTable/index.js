@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { TableContainer, Table, TableHead, TableRow, TableCell, 
   TableBody, TablePagination, TableFooter } from '@material-ui/core';
@@ -15,6 +15,10 @@ const UsersTable = props => {
   const [usersToShow, setUsersToShow] = useState(
     [...users.slice(0, rowsPerPage)]
   );
+
+  useEffect(() => {
+    setUsersToShow([...users.slice(0, rowsPerPage)])
+  }, [users])
 
   const newPageFn = (event, newPage) => {
     setPage(newPage);
