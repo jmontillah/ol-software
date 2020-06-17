@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Typography, ExpansionPanel, ExpansionPanelSummary,
   ExpansionPanelDetails } from '@material-ui/core';
@@ -8,9 +8,13 @@ import './style.scss';
 const SidebarElement = props => {
   const { show, name, icon, options = [], selectedProp = false, 
     selectedSubEle = false } = props;
-    console.log(selectedSubEle)
   const [expanded, setExpanded] = useState(false);
   const [selected, setSelected] = useState(selectedProp);
+
+  useEffect(() => {
+    const finded = options.findIndex(opt => opt.id == selectedSubEle);
+    if (finded != -1) setExpanded(true);
+  }, [])
 
   const lightOption = (e, elementClass, subCompClass = undefined) => {
     const classToToggle = `.af-selected`;
@@ -48,12 +52,17 @@ const SidebarElement = props => {
           onClick={(e) => lightOption(e, 'af-panelSummary')}
         >
           {icon}
-          <Typography className={`af-text ${!show ? 'af-nDisplay' : ''}`} variant="subtitle2">
+          <Typography 
+            className={`af-text ${!show ? 'af-nDisplay' : ''}`} 
+            variant="subtitle2"
+          >
             {name}
           </Typography>
         </ExpansionPanelSummary>
         {options.length > 0 &&
-          <ExpansionPanelDetails>
+          <ExpansionPanelDetails
+            className={show ? '' : 'contained'}
+          >
           {options.map((opt) => 
               <div 
                 className={
@@ -86,7 +95,9 @@ SidebarElement.propTypes = {
   show: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
   icon: PropTypes.element.isRequired,
-  options: PropTypes.array
+  options: PropTypes.array,
+  selectedProp: PropTypes.bool.isRequired, 
+  selectedSubEle: PropTypes.bool.isRequired,
 }
 
 export default SidebarElement;

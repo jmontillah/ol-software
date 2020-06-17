@@ -22,6 +22,12 @@
     display: flex;
     align-items: center;
     padding: 0 .25rem;
+    &.contained {
+      justify-content: center;
+      .af-icon {
+        margin-right: 0;
+      }
+    }
   }
   .af-selected {
     background: rgba(255, 255, 255, .5);

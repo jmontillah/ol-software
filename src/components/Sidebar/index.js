@@ -10,7 +10,7 @@ const Sidebar = props => {
   const { show, optSelected } = props;
   return (
     <div className="af-sidebarContainer">
-      <div className="af-title">
+      <div className={`af-title ${show ? '' : 'contained'}`}>
         <FiberManualRecordIcon className="af-icon" fontSize="large"/>
         <Typography 
           className={`af-text ${!show ? 'af-nDisplay' : ''}`} 

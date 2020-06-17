@@ -40,6 +40,15 @@
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    &.contained {
+      padding: 0;
+      .af-element {
+        justify-content: center;
+        .af-icon {
+          margin-right: 0;
+        }
+      }
+    }
     .af-text {
       margin-left: .5rem;
     }
