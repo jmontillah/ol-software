@@ -17,6 +17,9 @@
       width: 100%;
       display: flex;
       justify-content: space-evenly;
+      &.af-justOne {
+        justify-content: flex-start;
+      }
       .af-formControl {
         width: 40%;
         margin: .8rem 0;

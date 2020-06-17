@@ -48,6 +48,7 @@ const UserModal = props => {
               className="af-inputBase"
               value={form.names}
               onChange={(e) => onChange(e, 'names')}
+              disabled={edit}
             />
           </FormControl>
           <FormControl className="af-formControl">
@@ -59,6 +60,7 @@ const UserModal = props => {
             className="af-inputBase"
             value={form.surnames}
             onChange={(e) => onChange(e, 'surnames')}
+            disabled={edit}
           />
         </FormControl>
         </div>
@@ -72,6 +74,7 @@ const UserModal = props => {
               className="af-inputBase"
               value={form.national_id}
               onChange={(e) => onChange(e, 'national_id')}
+              disabled={edit}
             />
           </FormControl>
           <FormControl className="af-formControl">
@@ -105,42 +108,74 @@ const UserModal = props => {
               <MenuItem value={false}>Inactivo</MenuItem>
             </Select>
           </FormControl>
-          <FormControl className="af-formControl">
-            <InputLabel className="af-inputLabel" shrink htmlFor="passwordInput">
-              Contraseña
-            </InputLabel>
-            <InputBase 
-              id="passwordInput" 
-              className="af-inputBase"
-              value={form.password}
-              onChange={(e) => onChange(e, 'password')}
-            />
-          </FormControl>
+          {!edit ?
+            <FormControl className="af-formControl">
+              <InputLabel className="af-inputLabel" shrink htmlFor="passwordInput">
+                Contraseña
+              </InputLabel>
+              <InputBase 
+                id="passwordInput" 
+                className="af-inputBase"
+                value={form.password}
+                onChange={(e) => onChange(e, 'password')}
+              />
+            </FormControl>
+            :
+            <FormControl className="af-formControl">
+              <InputLabel className="af-inputLabel" shrink htmlFor="phoneInput">
+                Teléfono
+              </InputLabel>
+              <InputBase 
+                id="phoneInput" 
+                className="af-inputBase"
+                value={form.phone}
+                onChange={(e) => onChange(e, 'phone')}
+              />
+            </FormControl>
+          }
         </div>
-        <div className="af-twoInputs">
-          <FormControl className="af-formControl">
-            <InputLabel className="af-inputLabel" shrink htmlFor="phoneInput">
-              Teléfono
-            </InputLabel>
-            <InputBase 
-              id="phoneInput" 
-              className="af-inputBase"
-              value={form.phone}
-              onChange={(e) => onChange(e, 'phone')}
-            />
-          </FormControl>
-          <FormControl className="af-formControl">
-            <InputLabel className="af-inputLabel" shrink htmlFor="emailInput">
-              Correo electrónico
-            </InputLabel>
-            <InputBase 
-              id="emailInput" 
-              className="af-inputBase"
-              value={form.email}
-              onChange={(e) => onChange(e, 'email')}
-            />
-          </FormControl>
-        </div>
+        {!edit ?
+          <div className="af-twoInputs">
+            <FormControl className="af-formControl">
+              <InputLabel className="af-inputLabel" shrink htmlFor="phoneInput">
+                Teléfono
+              </InputLabel>
+              <InputBase 
+                id="phoneInput" 
+                className="af-inputBase"
+                value={form.phone}
+                onChange={(e) => onChange(e, 'phone')}
+              />
+            </FormControl>
+            <FormControl className="af-formControl">
+              <InputLabel className="af-inputLabel" shrink htmlFor="emailInput">
+                Correo electrónico
+              </InputLabel>
+              <InputBase 
+                id="emailInput" 
+                className="af-inputBase"
+                value={form.email}
+                onChange={(e) => onChange(e, 'email')}
+              />
+            </FormControl>
+          </div>
+          :
+          <div className="af-twoInputs">
+            <FormControl className="af-formControl">
+              <InputLabel className="af-inputLabel" shrink htmlFor="emailInput">
+                Correo electrónico
+              </InputLabel>
+              <InputBase 
+                id="emailInput" 
+                className="af-inputBase"
+                value={form.email}
+                onChange={(e) => onChange(e, 'email')}
+              />
+            </FormControl>
+            <FormControl className="af-formControl">
+            </FormControl>
+          </div>
+        }
         <div className="af-buttons">
           <div className="af-btnDiv accept">
             <Button 

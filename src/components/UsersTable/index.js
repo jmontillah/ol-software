@@ -65,7 +65,7 @@ const UsersTable = props => {
       </TableContainer>
       <TablePagination
         className="af-tablePagination"
-        rowsPerPageOptions={[5, 10, 25]}
+        rowsPerPageOptions={[5, 6, 10, 25]}
         rowsPerPage={rowsPerPage}
         component="div"
         count={users.length}
