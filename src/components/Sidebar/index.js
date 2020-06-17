@@ -21,15 +21,16 @@ const Sidebar = props => {
       </div>
       <Divider className="af-divider"/>
       {
-        sidebarOptions.map(option => (
-          <SidebarElement 
+        sidebarOptions.map((option, index) => (
+          <SidebarElement
+            key={index}
             show={show}
             name={option.name}
             icon={option.icon}
             options={option.options}
-            selectedProp={option.id == optSelected}
+            selectedProp={option.id === optSelected}
             selectedSubEle={
-              option.options.findIndex(opt => opt.id == optSelected) != -1 &&
+              option.options.findIndex(opt => opt.id === optSelected) !== -1 &&
                 optSelected
             }
           />
@@ -41,6 +42,7 @@ const Sidebar = props => {
 
 Sidebar.propTypes = {
   show: PropTypes.bool.isRequired,
+  optSelected: PropTypes.string.isRequired,
 }
 
 export default Sidebar;

@@ -110,7 +110,11 @@ const UserModal = props => {
           </FormControl>
           {!edit ?
             <FormControl className="af-formControl">
-              <InputLabel className="af-inputLabel" shrink htmlFor="passwordInput">
+              <InputLabel 
+                className="af-inputLabel" 
+                shrink 
+                htmlFor="passwordInput"
+              >
                 Contraseña
               </InputLabel>
               <InputBase 
@@ -201,7 +205,6 @@ UserModal.propTypes = {
   open: PropTypes.bool.isRequired,
   hide: PropTypes.func.isRequired,
   newUserForm: PropTypes.object.isRequired,
-  onChange: PropTypes.func.isRequired,
   newUserFn: PropTypes.func.isRequired,
   roles: PropTypes.array.isRequired,
   updateUser: PropTypes.func.isRequired,

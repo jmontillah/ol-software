@@ -12,9 +12,9 @@ const SidebarElement = props => {
   const [selected, setSelected] = useState(selectedProp);
 
   useEffect(() => {
-    const finded = options.findIndex(opt => opt.id == selectedSubEle);
-    if (finded != -1) setExpanded(true);
-  }, [])
+    const finded = options.findIndex(opt => opt.id === selectedSubEle);
+    if (finded !== -1) setExpanded(true);
+  }, [options, selectedSubEle])
 
   const lightOption = (e, elementClass, subCompClass = undefined) => {
     const classToToggle = `.af-selected`;
@@ -37,7 +37,6 @@ const SidebarElement = props => {
         className="af-expansionPanel" 
         expanded={expanded} 
         onChange={() => setExpanded(!expanded)}
-        // onClick={(e) => lightOption(e)}
       >
         <ExpansionPanelSummary 
           className={
@@ -68,7 +67,7 @@ const SidebarElement = props => {
                 className={
                   `af-element 
                   ${opt.name} 
-                  ${opt.id == selectedSubEle ? 'af-selected' : ''}`
+                  ${opt.id === selectedSubEle ? 'af-selected' : ''}`
                 }
                 key={opt.name}
                 onClick={
@@ -97,7 +96,10 @@ SidebarElement.propTypes = {
   icon: PropTypes.element.isRequired,
   options: PropTypes.array,
   selectedProp: PropTypes.bool.isRequired, 
-  selectedSubEle: PropTypes.bool.isRequired,
+  selectedSubEle: PropTypes.oneOfType([
+    PropTypes.bool.isRequired,
+    PropTypes.string.isRequired,
+  ]),
 }
 
 export default SidebarElement;

@@ -15,14 +15,14 @@ class DashboardScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      username: checkSession(),
       sidebarExpanded: false,
       openModal: false,
       modalTitle: '',
       openConfirmModal: false,
       userId: '',
-      users: [],
-      roles: [],
+      users: getUsers(),
+      roles: getRoles(),
       newUserForm: {
         _id: "",
         names: "",
@@ -99,15 +99,6 @@ class DashboardScreen extends Component {
     this.setState({users: getUsers(), openModal: false});
   }
 
-  componentWillMount() {
-    this.setState({
-      ...this.state,
-      username: checkSession(),
-      users: getUsers(),
-      roles: getRoles(),
-    });
-  }
-
   render() {
     return (
       <div className="af-dashboardContainer">
@@ -128,7 +119,10 @@ class DashboardScreen extends Component {
           <Grid 
             item 
             xs={10} 
-            className={`af-content ${!this.state.sidebarExpanded ? 'af-cntNExpanded' : ''}`}
+            className={
+              `af-content 
+              ${!this.state.sidebarExpanded ? 'af-cntNExpanded' : ''}`
+            }
           >
             <Navbar 
               username={this.state.username}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { TableContainer, Table, TableHead, TableRow, TableCell, 
-  TableBody, TablePagination, TableFooter } from '@material-ui/core';
+  TableBody, TablePagination } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { usersTableColumns } from './../../constants';
@@ -18,7 +18,7 @@ const UsersTable = props => {
 
   useEffect(() => {
     setUsersToShow([...users.slice(0, rowsPerPage)])
-  }, [users])
+  }, [users, rowsPerPage])
 
   const newPageFn = (event, newPage) => {
     setPage(newPage);

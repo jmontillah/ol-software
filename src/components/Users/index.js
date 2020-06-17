@@ -22,7 +22,10 @@ const Users = props => {
           </Typography>
         </div>
         <div className="af-right">
-          <Button className="af-btn" onClick={() => showModal('Agregar nuevo usuario')}>
+          <Button 
+            className="af-btn" 
+            onClick={() => showModal('Agregar nuevo usuario')}
+          >
             Crear
           </Button>
           <UserModal 
