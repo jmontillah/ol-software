@@ -16,13 +16,15 @@ export const sidebarOptions = [
     id: '0',
     name: "Programación",
     icon: <MapIcon className="af-icon"/>,
-    options: []
+    options: [],
+    url: ''
   },
   {
     id: '1',
     name: "Gestión de operaciones",
     icon: <ListIcon className="af-icon"/>,
-    options: []
+    options: [],
+    url: ''
   },
   {
     id: '2',
@@ -32,12 +34,14 @@ export const sidebarOptions = [
       {
         id: '2a',
         name: "Roles",
-        icon: <AssignmentIndIcon className="af-icon"/>
+        icon: <AssignmentIndIcon className="af-icon"/>,
+        url: '/roles'
       },
       {
         id: '2b',
         name: "Usuarios",
-        icon: <ContactsIcon className="af-icon"/>
+        icon: <ContactsIcon className="af-icon"/>,
+        url: '/dashboard'
       }
     ],
   },

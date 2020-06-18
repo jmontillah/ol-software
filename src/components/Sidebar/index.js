@@ -39,6 +39,7 @@ const Sidebar = props => {
               option.options.findIndex(opt => opt.id === optSelected) !== -1 &&
                 optSelected
             }
+            url={option.url}
           />
         ))
       }
