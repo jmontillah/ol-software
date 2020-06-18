@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Grid } from '@material-ui/core';
 import { Redirect } from 'react-router-dom';
+import PropTypes  from 'prop-types';
 import Sidebar from './../../components/Sidebar';
 import Navbar from './../../components/Navbar';
 import Users from './../../components/Users';
 import SearchForm from './../../components/SearchForm';
 import Footer from './../../components/Footer';
-import { checkSession, logutSession } from './../../utils';
+import { checkSession, logoutSession } from './../../utils';
 import { getUsers, filterUsers, getRoles, createUser, getUser,
   updateUser } from './../../api';
 import './style.scss';
@@ -15,14 +16,14 @@ class DashboardScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: checkSession(),
+      username: props.user,
       sidebarExpanded: false,
       openModal: false,
       modalTitle: '',
       openConfirmModal: false,
       userId: '',
-      users: getUsers(),
-      roles: getRoles(),
+      users: props.users,
+      roles: props.roles,
       newUserForm: {
         _id: "",
         names: "",
@@ -43,7 +44,7 @@ class DashboardScreen extends Component {
   });
 
   logoutFn = async () => {
-    logutSession();
+    logoutSession();
     this.setState({username: false});
   }
 
@@ -160,6 +161,12 @@ class DashboardScreen extends Component {
       </div>
     );
   }
+}
+
+DashboardScreen.propTypes = {
+  user: PropTypes.object.isRequired,
+  users: PropTypes.array.isRequired,
+  roles: PropTypes.array.isRequired,
 }
 
 export default DashboardScreen;

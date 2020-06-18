@@ -7,6 +7,6 @@ export const loginSession = username => {
   localStorage.setItem('username', username);
 }
 
-export const logutSession = () => {
+export const logoutSession = () => {
   localStorage.removeItem('username');
 }
