@@ -129,6 +129,7 @@ class DashboardScreen extends Component {
               username={this.state.username}
               logoutFn={this.logoutFn}
               toggleSidebar={this.toggleSidebar}
+              sidebarExpanded={this.state.sidebarExpanded}
             />
             <Grid container spacing={1} className="af-info">
               <Grid item xs={9}>
