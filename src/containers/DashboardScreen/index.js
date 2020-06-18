@@ -7,8 +7,8 @@ import Navbar from './../../components/Navbar';
 import Users from './../../components/Users';
 import SearchForm from './../../components/SearchForm';
 import Footer from './../../components/Footer';
-import { checkSession, logoutSession } from './../../utils';
-import { getUsers, filterUsers, getRoles, createUser, getUser,
+import { logoutSession } from './../../utils';
+import { getUsers, filterUsers, createUser, getUser,
   updateUser } from './../../api';
 import './style.scss';
 

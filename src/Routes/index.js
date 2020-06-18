@@ -26,7 +26,9 @@ const Routes = () => {
       />
       <Route 
         path="/roles"
-        render={props => <RolesScreen {...props} user={user} />}
+        render={props => (
+          <RolesScreen {...props} user={user} roles={roles}/>
+        )}
       />
       <Redirect from="/" to={checkSession() ? "/dashboard" : "/login"} />
     </Switch>

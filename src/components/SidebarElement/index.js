@@ -65,14 +65,13 @@ const SidebarElement = props => {
               className={show ? '' : 'contained'}
             >
             {options.map((opt) => 
-              <Link to={opt.url !== "" ? opt.url : "#"}>
+              <Link to={opt.url !== "" ? opt.url : "#"} key={opt.name}>
                 <div 
                   className={
                     `af-element 
                     ${opt.name} 
                     ${opt.id === selectedSubEle ? 'af-selected' : ''}`
                   }
-                  key={opt.name}
                   onClick={
                     (e) => lightOption(e, 'af-element', opt.name)
                   }

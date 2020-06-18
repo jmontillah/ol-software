@@ -30,6 +30,7 @@ export const sidebarOptions = [
     id: '2',
     name: "Perfiles",
     icon: <TuneIcon className="af-icon"/>,
+    url: "",
     options: [
       {
         id: '2a',
@@ -49,6 +50,7 @@ export const sidebarOptions = [
     id: '3',
     name: "Reportes",
     icon: <InsertDriveFileIcon className="af-icon"/>,
-    options: []
+    options: [],
+    url: ""
   }
 ];

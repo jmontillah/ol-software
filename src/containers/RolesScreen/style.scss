@@ -1,0 +1,23 @@
+@import './../../constants/style.scss';
+
+.af-rolesScreenContainer {
+  display: flex;
+  .af-content {
+    display: flex;
+    flex-direction: column;
+    .af-info {
+      display: flex;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+  }
+  // Sidebar not expanded
+  .af-sbNExpanded {
+    max-width: 4%;
+    flex-basis: 4%;;
+  }
+  .af-cntNExpanded {
+    max-width: 96%;
+    flex-basis: 96%;;
+  }
+}
