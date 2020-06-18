@@ -3,12 +3,12 @@ export const data = {
     {
       "_id": "19ed14c79d92ce2c067378fg",
       "names": "Jhonnatan",
-      "surnames": "Montilla Hernandez",
+      "surnames": "Montilla",
       "national_id": "1144141141",
       "role": "5e9da23b0ae2ec24e69c39cb",
       "active": true,
-      "phone": "3103747541",
-      "email": "jhonnatan133@gmail.com",
+      "phone": "3103103130",
+      "email": "jhonnatan@email.com",
       "password": "admin"
     },
     {
@@ -41,7 +41,7 @@ export const data = {
       "role": "5e9da23b8a03a6436ab33055",
       "active": false,
       "phone": "(817) 439-2426",
-      "email": "joycebaxter@enjola.com",
+      "email": "joycebaxter@hotmail.com",
       "password": "prueba"
     },
     {
@@ -52,7 +52,7 @@ export const data = {
       "role": "5e9da23b9daf356a3d29587b",
       "active": false,
       "phone": "(847) 431-2561",
-      "email": "jordanjames@enjola.com",
+      "email": "jordanjames@hotmail.com",
       "password": "prueba"
     },
     {
@@ -63,7 +63,7 @@ export const data = {
       "role": "5e9da23b36a7e312286a1746",
       "active": true,
       "phone": "(984) 537-2234",
-      "email": "keyortiz@enjola.com",
+      "email": "keyortiz@hotmail.com",
       "password": "prueba"
     },
     {
@@ -74,7 +74,7 @@ export const data = {
       "role": "5e9da23ba66ce496c5805d7f",
       "active": false,
       "phone": "(847) 431-2430",
-      "email": "goldenspencer@enjola.com",
+      "email": "goldenspencer@gmail.com",
       "password": "prueba"
     },
     {
@@ -85,7 +85,7 @@ export const data = {
       "role": "5e9da23b8a03a6436ab33055",
       "active": true,
       "phone": "(917) 485-3428",
-      "email": "stacicrawford@enjola.com",
+      "email": "stacicrawford@gmail.com",
       "password": "prueba"
     },
     {
@@ -96,7 +96,7 @@ export const data = {
       "role": "5e9da23b9daf356a3d29587b",
       "active": true,
       "phone": "(913) 421-2514",
-      "email": "acostalindsay@enjola.com"
+      "email": "acostalindsay@email.com"
     },
     {
       "_id": "5e9e0e0423f02b3e9e7b3ae9",
@@ -106,7 +106,7 @@ export const data = {
       "role": "5e9da23b36a7e312286a1746",
       "active": false,
       "phone": "(923) 445-3708",
-      "email": "ettapitts@enjola.com"
+      "email": "ettapitts@email.com"
     },
     {
       "_id": "5e9e0e04d7abbea4c2d7d7e8",
@@ -116,7 +116,7 @@ export const data = {
       "role": "5e9da23ba66ce496c5805d7f",
       "active": false,
       "phone": "(924) 459-2500",
-      "email": "toddhampton@enjola.com"
+      "email": "toddhampton@email.com"
     },
     {
       "_id": "5e9e0e041842124930f1ad7c",

@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import LoginScreen from './../containers/LoginScreen';
 import DashboardScreen from './../containers/DashboardScreen';
-import RolesScreen from './../containers/RolesScreen';
+import ReportsScreen from './../containers/ReportsScreen';
 import { checkSession } from './../utils';
 import { getRoles, getUsers } from './../api';
 
@@ -25,9 +25,9 @@ const Routes = () => {
         )}
       />
       <Route 
-        path="/roles"
+        path="/reports"
         render={props => (
-          <RolesScreen {...props} user={user} roles={roles}/>
+          <ReportsScreen {...props} user={user}/>
         )}
       />
       <Redirect from="/" to={checkSession() ? "/dashboard" : "/login"} />

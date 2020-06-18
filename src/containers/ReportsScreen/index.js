@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
-import Sidebar from './../../components/Sidebar';
 import Navbar from './../../components/Navbar';
+import Sidebar from './../../components/Sidebar';
 import Footer from './../../components/Footer';
 import { logoutSession } from './../../utils';
 import './style.scss';
 
-class RolesScreen extends Component {
+class ReportsScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
       username: props.user,
-      sidebarExpanded: false,
+      sidebarExpanded: false
     }
   }
 
@@ -28,7 +28,7 @@ class RolesScreen extends Component {
 
   render() {
     return (
-      <div className="af-rolesScreenContainer">
+      <div className="af-reportsContainer">
         {!this.state.username &&
           <Redirect to="/login" />
         }
@@ -40,7 +40,7 @@ class RolesScreen extends Component {
           >
             <Sidebar 
               show={this.state.sidebarExpanded}
-              optSelected="2a"
+              optSelected="3"
             />
           </Grid>
           <Grid 
@@ -68,9 +68,8 @@ class RolesScreen extends Component {
   }
 }
 
-RolesScreen.propTypes = {
+ReportsScreen.propTypes = {
   user: PropTypes.string.isRequired,
-  roles: PropTypes.array.isRequired,
 }
 
-export default RolesScreen;
+export default ReportsScreen;

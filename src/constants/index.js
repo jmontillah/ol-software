@@ -12,32 +12,32 @@ export const usersTableColumns = [
 ];
 
 export const sidebarOptions = [
-  {
-    id: '0',
-    name: "Programación",
-    icon: <MapIcon className="af-icon"/>,
-    options: [],
-    url: ''
-  },
-  {
-    id: '1',
-    name: "Gestión de operaciones",
-    icon: <ListIcon className="af-icon"/>,
-    options: [],
-    url: ''
-  },
+  // {
+  //   id: '0',
+  //   name: "Programación",
+  //   icon: <MapIcon className="af-icon"/>,
+  //   options: [],
+  //   url: ''
+  // },
+  // {
+  //   id: '1',
+  //   name: "Gestión de operaciones",
+  //   icon: <ListIcon className="af-icon"/>,
+  //   options: [],
+  //   url: ''
+  // },
   {
     id: '2',
     name: "Perfiles",
     icon: <TuneIcon className="af-icon"/>,
     url: "",
     options: [
-      {
-        id: '2a',
-        name: "Roles",
-        icon: <AssignmentIndIcon className="af-icon"/>,
-        url: '/roles'
-      },
+      // {
+      //   id: '2a',
+      //   name: "Roles",
+      //   icon: <AssignmentIndIcon className="af-icon"/>,
+      //   url: '/roles'
+      // },
       {
         id: '2b',
         name: "Usuarios",
@@ -51,6 +51,6 @@ export const sidebarOptions = [
     name: "Reportes",
     icon: <InsertDriveFileIcon className="af-icon"/>,
     options: [],
-    url: ""
+    url: "/reports"
   }
 ];
