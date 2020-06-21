@@ -17,7 +17,7 @@ export const data = {
       "surnames": "Gayle Newman",
       "national_id": "3214833722",
       "role": "5e9da23b0ae2ec24e69c39cb",
-      "active": false,
+      "active": true,
       "phone": "(913) 466-3621",
       "email": "gaylenewman@enjola.com",
       "password": "prueba"

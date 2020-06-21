@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
+import CustomPieChart from './../../components/CustomPieChart';
 import Navbar from './../../components/Navbar';
 import Sidebar from './../../components/Sidebar';
 import Footer from './../../components/Footer';
@@ -13,7 +14,12 @@ class ReportsScreen extends Component {
     super(props);
     this.state = {
       username: props.user,
-      sidebarExpanded: false
+      sidebarExpanded: false,
+      dataStatesChart: [
+        {name: "Activos", value: 0},
+        {name: "Inactivos", value: 0}
+      ],
+      colorsStateChart: ['#FFBB28', '#00C49F']
     }
   }
 
@@ -24,6 +30,22 @@ class ReportsScreen extends Component {
   logoutFn = async () => {
     logoutSession();
     this.setState({username: false});
+  }
+
+  componentWillMount() {
+    const { users } = this.props;
+    const { dataStatesChart } = this.state;
+    let index;
+    for (const user of users) {
+      index = user.active ?
+        dataStatesChart.findIndex(data => data.name === "Activos") :
+        dataStatesChart.findIndex(data => data.name === "Inactivos");
+      dataStatesChart[index].value++;
+    }
+    this.setState({
+      ...this.state,
+      dataStatesChart
+    });
   }
 
   render() {
@@ -58,7 +80,12 @@ class ReportsScreen extends Component {
               sidebarExpanded={this.state.sidebarExpanded}
             />
             <Grid container spacing={1} className="af-info">
-              
+              <Grid item xs={3}>
+                <CustomPieChart 
+                  data={this.state.dataStatesChart}
+                  colors={this.state.colorsStateChart}
+                />
+              </Grid>
             </Grid>
             <Footer />
           </Grid>

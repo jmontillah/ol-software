@@ -1,0 +1,26 @@
+@import './../../constants/style.scss';
+
+.af-customPieChartPaper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 0;
+  .af-pieHistory {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    .af-pieHistoryElement {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .MuiBox-root {
+        height: 15px;
+        width: 30px;
+      }
+      p {
+        margin: 0;
+        margin-left: 5px;
+      }
+    }
+  }
+}
