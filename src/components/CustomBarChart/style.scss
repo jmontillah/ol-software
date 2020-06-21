@@ -1,0 +1,51 @@
+@import './../../constants/style.scss';
+
+.af-customBarChartPaper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 0;
+  .af-title {
+    margin-bottom: 1.5rem;
+  }
+  .af-barChart {
+    .recharts-surface {
+      margin-left: -1.5rem;
+    }
+    .recharts-legend-wrapper {
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        li {
+          display: flex !important;
+          align-items: center;
+          margin: 0 2rem;
+          justify-content: center;
+        }
+      }
+    }
+    &.horizontal {
+      .xAxis {
+        .recharts-cartesian-axis-ticks {
+          display: none;
+        }
+      }
+    }
+    &.vertical {
+      .yAxis {
+        .recharts-cartesian-axis-ticks {
+          display: none;
+        }
+      }
+    }
+  }
+}
+.custom-tooltip {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid rgb(204, 204, 204);
+  p {
+    margin: 0;
+  }
+}

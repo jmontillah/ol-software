@@ -1,9 +1,6 @@
 import React from 'react';
-import MapIcon from '@material-ui/icons/Map';
-import ListIcon from '@material-ui/icons/List';
 import TuneIcon from '@material-ui/icons/Tune';
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
-import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import ContactsIcon from '@material-ui/icons/Contacts';
 
 export const usersTableColumns = [

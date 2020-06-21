@@ -27,7 +27,7 @@ const Routes = () => {
       <Route 
         path="/reports"
         render={props => (
-          <ReportsScreen {...props} user={user} users={users}/>
+          <ReportsScreen {...props} user={user} users={users} roles={roles}/>
         )}
       />
       <Redirect from="/" to={checkSession() ? "/dashboard" : "/login"} />

@@ -33,3 +33,14 @@ export const renderCustomizedLabelPieChart = ({
     </text>
   );
 };
+
+export const adjustHeight = classContainer => {
+  const currentHeight = window.innerHeight;
+  const containerElement = document.querySelector(`.${classContainer}`);
+  const containerHeight = containerElement.offsetHeight;
+  if (containerHeight < currentHeight) {
+    containerElement.style.height = "100vh";
+    containerElement.style.justifyContent = "space-between"
+    document.querySelector(`.af-footerContainer`).style.marginBottom = 0;
+  }
+}
