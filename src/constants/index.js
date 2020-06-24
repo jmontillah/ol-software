@@ -3,38 +3,20 @@ import TuneIcon from '@material-ui/icons/Tune';
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
 import ContactsIcon from '@material-ui/icons/Contacts';
 
+export * from './redux';
+
 export const usersTableColumns = [
   'Nombres', 'Apellidos', 'Identificación (C.C.)','Rol asociado', 'Estado', 
   'Teléfono', 'Correo electrónico', 'Acción'
 ];
 
 export const sidebarOptions = [
-  // {
-  //   id: '0',
-  //   name: "Programación",
-  //   icon: <MapIcon className="af-icon"/>,
-  //   options: [],
-  //   url: ''
-  // },
-  // {
-  //   id: '1',
-  //   name: "Gestión de operaciones",
-  //   icon: <ListIcon className="af-icon"/>,
-  //   options: [],
-  //   url: ''
-  // },
   {
     id: '2',
     name: "Perfiles",
     icon: <TuneIcon className="af-icon"/>,
     url: "",
     options: [
-      // {
-      //   id: '2a',
-      //   name: "Roles",
-      //   icon: <AssignmentIndIcon className="af-icon"/>,
-      //   url: '/roles'
-      // },
       {
         id: '2b',
         name: "Usuarios",
