@@ -16,7 +16,7 @@ class DashboardScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: props.user,
+      user: props.user,
       sidebarExpanded: false,
       openModal: false,
       modalTitle: '',
@@ -42,11 +42,6 @@ class DashboardScreen extends Component {
   toggleSidebar = () => this.setState({
     sidebarExpanded: !this.state.sidebarExpanded
   });
-
-  logoutFn = async () => {
-    logoutSession();
-    this.setState({username: false});
-  }
 
   showModal = (title, userId = '') => {
     if (userId !== '') {
@@ -103,7 +98,7 @@ class DashboardScreen extends Component {
   render() {
     return (
       <div className="af-dashboardContainer">
-        {!this.state.username &&
+        {!this.state.user.username &&
           <Redirect to="/login" />
         }
         <Grid container spacing={0}>
@@ -125,12 +120,7 @@ class DashboardScreen extends Component {
               ${!this.state.sidebarExpanded ? 'af-cntNExpanded' : ''}`
             }
           >
-            <Navbar 
-              username={this.state.username}
-              logoutFn={this.logoutFn}
-              toggleSidebar={this.toggleSidebar}
-              sidebarExpanded={this.state.sidebarExpanded}
-            />
+            <Navbar />
             <Grid container spacing={1} className="af-info">
               <Grid item xs={9}>
                 <Users 

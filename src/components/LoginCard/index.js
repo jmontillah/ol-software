@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Paper, Typography, InputBase, Button } from '@material-ui/core';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
@@ -6,7 +6,16 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import './style.scss';
 
 const LoginCard = props => {
-  const { user, pass, onChange, error, loginFn } = props
+  const { error, loginFn } = props;
+  const [form, setForm] = useState({email: '', pass: ''});
+
+  const onChange = (e, inForm) => {
+    setForm({
+      ...form,
+      [inForm]: e.target.value
+    });
+  }
+
   return (
     <Paper className="af-loginCardPaper" elevation={3}>
       <Typography variant="h6" className="af-title">
@@ -17,8 +26,8 @@ const LoginCard = props => {
           <InputBase 
             placeholder="Usuario"
             className="af-inputBase"
-            value={user}
-            onChange={(e) => onChange(e, 'user')}
+            value={form.email}
+            onChange={(e) => onChange(e, 'email')}
           />
           <PersonOutlineOutlinedIcon className="af-icon"/>
         </Paper>
@@ -27,7 +36,7 @@ const LoginCard = props => {
             placeholder="Contraseña"
             className="af-inputBase"
             type="password"
-            value={pass}
+            value={form.pass}
             onChange={(e) => onChange(e, 'pass')}
           />
           <LockOutlinedIcon className="af-icon"/>
@@ -41,7 +50,7 @@ const LoginCard = props => {
       <Button 
         variant="contained" 
         className="af-button" 
-        onClick={() => loginFn()}>
+        onClick={() => loginFn(form)}>
         Iniciar sesión
       </Button>
     </Paper>
@@ -49,9 +58,6 @@ const LoginCard = props => {
 }
 
 LoginCard.propTypes = {
-  user: PropTypes.string.isRequired,
-  pass: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired,
   loginFn: PropTypes.func.isRequired,
 }

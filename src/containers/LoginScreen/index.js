@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Typography } from '@material-ui/core';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import LoginCard from './../../components/LoginCard';
 import { login as loginApi } from './../../api';
 import Loading from './../../components/Loading';
-import { checkSession, loginSession } from './../../utils';
+import { setUser } from './../../actions/setUser';
 import './style.scss';
 
 class LoginScreen extends Component {
@@ -12,40 +14,40 @@ class LoginScreen extends Component {
     super(props);
     this.state = {
       error: '',
-      user: '',
-      pass: '',
       loading: false,
-      username: checkSession()
+      user: props.user
     }
   }
 
-  login = () => {
-    const loginRes = loginApi(this.state.user, this.state.pass);
+  login = form => {
+    const { email, pass } = form;
+    const loginRes = loginApi(email, pass);
     if (!loginRes) return this.setState({
       error: 'Hubo un error, verifica los campos.'
     });
     if (!loginRes.active) return this.setState({
       error: 'El usuario no está activo.'
     });
-    // this.setState({loading: true})
-    // setTimeout(() => {
-      // this.setState({loading: false})
-      loginSession(loginRes.names + ' ' + loginRes.surnames);
-      this.setState({username: loginRes.names + ' ' + loginRes.surnames});
-    // }, 2000)
-  }
-
-  onChange = (e, input) => {
-    this.setState({[input]: e.target.value});
+    const { names, surnames, phone } = loginRes;
+    const userObj = {
+      names,
+      surnames,
+      role: loginRes.role.name,
+      phone,
+      email: loginRes.email,
+      username: names + ' ' + surnames
+    };
+    this.props.setUser(userObj);
+    this.setState({user: userObj});
   }
 
   render() {
     return (
       <div className="af-loginScreenContainer">
-        {this.state.username &&
+        {this.state.user.username &&
           <Redirect to={{
             pathname: "/dashboard",
-            state: { username: this.state.username }
+            // state: { username: this.state.username }
           }} />
         }
         <div className="af-text">
@@ -59,9 +61,6 @@ class LoginScreen extends Component {
         </div>
         <div className="af-loginCard">
           <LoginCard 
-            user={this.state.user}
-            pass={this.state.pass}
-            onChange={this.onChange}
             loginFn={this.login} 
             error={this.state.error}
           />
@@ -74,4 +73,8 @@ class LoginScreen extends Component {
   }
 }
 
-export default LoginScreen;
+LoginScreen.propTypes = {
+  setUser: PropTypes.func.isRequired,
+}
+
+export default connect(null, { setUser })(LoginScreen);
