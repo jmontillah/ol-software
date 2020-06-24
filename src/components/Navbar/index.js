@@ -45,7 +45,7 @@ const Navbar = props => {
 }
 
 Navbar.propTypes = {
-  user: PropTypes.bool.isRequired,
+  user: PropTypes.object.isRequired,
   setUser: PropTypes.func.isRequired,
   setShowSidebar: PropTypes.func.isRequired,
   showSidebar: PropTypes.bool.isRequired,
