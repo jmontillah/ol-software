@@ -46,7 +46,7 @@ const CustomBarChart = ({ data, colors, layout = "horizontal" }) => {
         <Legend />
         {
           Object.keys(barsData).map((element, index) => (
-            <Bar dataKey={element} fill={colors[index]} />
+            <Bar key={index} dataKey={element} fill={colors[index]} />
           ))
         }
       </BarChart>
@@ -57,7 +57,7 @@ const CustomBarChart = ({ data, colors, layout = "horizontal" }) => {
 CustomBarChart.propTypes = {
   data: PropTypes.array.isRequired,
   colors: PropTypes.array.isRequired,
-  layout: PropTypes.string.isRequired,
+  layout: PropTypes.string,
 }
 
 export default CustomBarChart;
