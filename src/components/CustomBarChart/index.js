@@ -56,7 +56,7 @@ const CustomBarChart = ({ data, colors, layout = "horizontal" }) => {
 
 CustomBarChart.propTypes = {
   data: PropTypes.array.isRequired,
-  colors: PropTypes.string.isRequired,
+  colors: PropTypes.array.isRequired,
   layout: PropTypes.string.isRequired,
 }
 

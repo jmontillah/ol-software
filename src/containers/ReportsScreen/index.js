@@ -2,21 +2,21 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
+import { connect } from 'react-redux';
 import CustomPieChart from './../../components/CustomPieChart';
 import Navbar from './../../components/Navbar';
 import Sidebar from './../../components/Sidebar';
 import Footer from './../../components/Footer';
-import { logoutSession } from './../../utils';
 import CustomBarChart from '../../components/CustomBarChart';
 import { adjustHeight } from './../../utils';
+import { getShowSidebar } from './../../selectors';
 import './style.scss';
 
 class ReportsScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: props.user,
-      sidebarExpanded: false,
+      user: props.user,
       dataStatesChart: [
         {name: "Activos", value: 0},
         {name: "Inactivos", value: 0}
@@ -27,15 +27,6 @@ class ReportsScreen extends Component {
       dataEmailsChart: [],
       colorsEmailsChart: ['#E00017', '#B0BFA4', '#B0390E', '#45E439', '#7A4633'],
     }
-  }
-
-  toggleSidebar = () => this.setState({
-    sidebarExpanded: !this.state.sidebarExpanded
-  });
-
-  logoutFn = async () => {
-    logoutSession();
-    this.setState({username: false});
   }
   
   updateDataStatesChart = users => {
@@ -103,17 +94,17 @@ class ReportsScreen extends Component {
   render() {
     return (
       <div className="af-reportsContainer">
-        {!this.state.username &&
+        {!this.state.user.username &&
           <Redirect to="/login" />
         }
         <Grid container spacing={0}>
           <Grid 
-            className={!this.state.sidebarExpanded ? 'af-sbNExpanded' : ''} 
+            className={!this.props.showSidebar ? 'af-sbNExpanded' : ''} 
             item 
             xs={2}
           >
-            <Sidebar 
-              show={this.state.sidebarExpanded}
+            <Sidebar
+              show={this.props.showSidebar}
               optSelected="3"
             />
           </Grid>
@@ -122,15 +113,10 @@ class ReportsScreen extends Component {
             xs={10} 
             className={
               `af-content 
-              ${!this.state.sidebarExpanded ? 'af-cntNExpanded' : ''}`
+              ${!this.props.showSidebar ? 'af-cntNExpanded' : ''}`
             }
           >
-            <Navbar 
-              username={this.state.username}
-              logoutFn={this.logoutFn}
-              toggleSidebar={this.toggleSidebar}
-              sidebarExpanded={this.state.sidebarExpanded}
-            />
+            <Navbar />
             <Grid container spacing={1} className="af-info">
               <Grid item xs={4}>
                 <CustomPieChart 
@@ -162,6 +148,11 @@ class ReportsScreen extends Component {
 
 ReportsScreen.propTypes = {
   user: PropTypes.string.isRequired,
+  showSidebar: PropTypes.bool.isRequired,
 }
 
-export default ReportsScreen;
+const mapStateToProps = state => ({
+  showSidebar: getShowSidebar(state)
+});
+
+export default connect(mapStateToProps)(ReportsScreen);
