@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { Grid } from '@material-ui/core';
 import { Redirect } from 'react-router-dom';
 import PropTypes  from 'prop-types';
+import { connect } from 'react-redux';
 import Sidebar from './../../components/Sidebar';
 import Navbar from './../../components/Navbar';
 import Users from './../../components/Users';
 import SearchForm from './../../components/SearchForm';
 import Footer from './../../components/Footer';
-import { logoutSession } from './../../utils';
 import { getUsers, filterUsers, createUser, getUser,
   updateUser } from './../../api';
+import { getShowSidebar } from './../../selectors';
 import './style.scss';
 
 class DashboardScreen extends Component {
@@ -17,7 +18,6 @@ class DashboardScreen extends Component {
     super(props);
     this.state = {
       user: props.user,
-      sidebarExpanded: false,
       openModal: false,
       modalTitle: '',
       openConfirmModal: false,
@@ -38,10 +38,6 @@ class DashboardScreen extends Component {
       editInModal: false
     }
   }
-
-  toggleSidebar = () => this.setState({
-    sidebarExpanded: !this.state.sidebarExpanded
-  });
 
   showModal = (title, userId = '') => {
     if (userId !== '') {
@@ -103,12 +99,12 @@ class DashboardScreen extends Component {
         }
         <Grid container spacing={0}>
           <Grid 
-            className={!this.state.sidebarExpanded ? 'af-sbNExpanded' : ''} 
+            className={!this.props.showSidebar ? 'af-sbNExpanded' : ''} 
             item 
             xs={2}
           >
             <Sidebar 
-              show={this.state.sidebarExpanded}
+              show={this.props.showSidebar}
               optSelected="2b"
             />
           </Grid>
@@ -117,7 +113,7 @@ class DashboardScreen extends Component {
             xs={10} 
             className={
               `af-content 
-              ${!this.state.sidebarExpanded ? 'af-cntNExpanded' : ''}`
+              ${!this.props.showSidebar ? 'af-cntNExpanded' : ''}`
             }
           >
             <Navbar />
@@ -158,6 +154,11 @@ DashboardScreen.propTypes = {
   user: PropTypes.object.isRequired,
   users: PropTypes.array.isRequired,
   roles: PropTypes.array.isRequired,
+  showSidebar: PropTypes.bool.isRequired,
 }
 
-export default DashboardScreen;
+const mapStateToProps = state => ({
+  showSidebar: getShowSidebar(state)
+});
+
+export default connect(mapStateToProps)(DashboardScreen);
